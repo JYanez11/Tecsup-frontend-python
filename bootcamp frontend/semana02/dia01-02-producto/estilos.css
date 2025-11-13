@@ -95,25 +95,59 @@ main {
 
 /* TODO: Terminar con los estilos de las etiquetas h1 y p aplicando colores, fuentes, tamaños */
 
-h1 {
+.content h1 {
   /* border: 1px solid green; */
 
   margin: 0; /* resetea el margen de este h1 */
- 
+
+  color: hsl(158, 42%, 18%);
+  font-family: 'Fraunces', sans-serif;
   font-weight: 700;
-  color: hsl(212, 21%, 14%);
-  font-size: 28px;
-  /*letter-spacing: 7px; */
-  word-spacing: 2px;
 }
 
-p {
+.content p {
   /* border: 1px solid green; */
 
   margin: 0; /* resetea el margen de este h1 */
-  font-weight: 500;
+
   color: hsl(228, 12%, 48%);
-  font-size: 14px;
-  /*letter-spacing: 7px; */
-  word-spacing: 2px;
+  line-height: 1.5;
+  font-weight: 500; /* No es necesario viene por defecto en el navegador*/
 }
+
+.content div {
+  display: flex;
+  align-items: center; /* Alinea los elemenos hijos verticalmente*/
+  gap: 28px;
+}
+
+.content span {
+  font-family: 'Fraunces', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: hsl(158, 36%, 37%);
+}
+
+.content s {
+  color: hsl(228, 12%, 48%);
+}
+
+.content button {
+  border: 0;
+  
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: white; /* hsl(0, 0%, 100%) */
+  background-color: hsl(158, 36%, 37%);
+
+  padding: 14px;
+  border-radius: 7px;
+
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+}
+
+/* TODO: Añadir al boton la imagen del carrito, revisar la carpeta images. Y alinearlo como está en el diseño */
+
+/* TODO: Añadir bordes redondeados a la etiqueta main, a la caja principal como está en el diseño */
