@@ -1,16 +1,14 @@
 @font-face {
-  font-family: 'Monserat';
-  src: url(./fonts/Montserrat-VariableFont_wght.ttf) format('truetype');
+  font-family: 'Montserrat';
+  src: url(fonts/Montserrat-VariableFont_wght.ttf) format('truetype');
   font-weight: 500;
 }
 
-
 @font-face {
-  font-family: 'Monserat';
-  src: url(./fonts/Montserrat-VariableFont_wght.ttf) format('truetype');
+  font-family: 'Montserrat';
+  src: url(fonts/Montserrat-VariableFont_wght.ttf) format('truetype');
   font-weight: 700;
 }
-
 
 /* TODO: descargar la fuente Fraunces desde Google fonts y usarla en el body */
 
@@ -18,8 +16,7 @@
   font-family: 'Fraunces';
   src: url(fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf) format('truetype');
   font-weight: 700;
-
-}
+} 
 
 body {
   background-color: hsl(30, 38%, 92%);
@@ -29,28 +26,25 @@ body {
   font-family: 'Montserrat', sans-serif;
   /* font-family: 'Fraunces', sans-serif; */
 
-  display: flex;
-  /* Flexbox */
+  display: flex; /* Flexbox */
 
-  justify-content: center;
-  /* Aliamiento horizontal */
-  align-items: center;
-  /* Alineamiento vertical */
+  justify-content: center; /* Aliamiento horizontal */
+  align-items: center; /* Alineamiento vertical */
 
-  height: 100vh;
-  /* vh <> Viewport height */
+  height: 100vh; /* vh <> Viewport height */  
 }
 
-
 main {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
   width: 650px;
 
-  display: flex;
-  /* Flexbox */
+  display: flex; /* Flexbox */
 
   min-height: 400px;
+
+  border-radius: 14px;
+  overflow: hidden;
 }
 
 .photo {
@@ -61,7 +55,6 @@ main {
   background-image: url(images/image-product-desktop.jpg);
   background-size: cover;
 }
-
 
 .content {
   /* border: 1px solid orange; */
@@ -79,7 +72,6 @@ main {
   background-color: hsl(0, 0%, 100%);
 }
 
-
 .content h2 { /* Selectores combinados */
   /* border: 1px solid green; */
 
@@ -91,7 +83,6 @@ main {
   font-size: 14px;
   letter-spacing: 7px;
 }
-
 
 /* TODO: Terminar con los estilos de las etiquetas h1 y p aplicando colores, fuentes, tamaños */
 
