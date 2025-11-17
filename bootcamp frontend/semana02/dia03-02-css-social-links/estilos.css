@@ -1,3 +1,5 @@
+
+
 /* background-color: hsl(148, 38%, 91%);
   font-size: 16px;
   font-family: 'Karla', sans-serif;
@@ -57,19 +59,19 @@ div {
 }
 
 img {
-            width: 140px;        /* Diámetro del círculo */
-            height: 140px;       /* DEBE SER IGUAL AL ANCHO */
-            border-radius: 50%;  /* Convierte el contenedor en círculo */
-            overflow: hidden;    /* ¡Oculta lo que se salga del círculo! */
+            width: 140px;        
+            height: 140px;       
+            border-radius: 50%;  
+            overflow: hidden;    
           
             
-            display: flex; /* Opcional: Centra la imagen si el contenedor es flex */
+            display: flex; 
             justify-content: center;
             align-items: center;
 
-            display: block;  /* 1. Hace que la imagen se comporte como un bloque */
-            width: 50%;      /* 2. Le da un ancho (necesario para que margin: auto funcione) */
-            margin: 0 auto;  /* 3. Centra automáticamente el bloque horizontalmente */
+            display: block;  
+            width: 50%;      
+            margin: 0 auto;  
 }
 
 .mensaje { 
@@ -84,4 +86,7 @@ img {
 input  {
     background-color: hsl(0, 0%, 20%);
     color: white;
+    height: 50px;
+    width: 400px;
+
 }
