@@ -1,4 +1,4 @@
-
+-
 
 /* GENERALES */
 * {
@@ -28,41 +28,69 @@
   }
 
   main {
-    /* border: 1px solid red; */
+    border: 1px solid red;
     background-color: white;
     border-radius: 32px;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    gap: 20px;
   
   }
 
 
+  .section {
+    background-color: blue;
+  
+    width: 400px;
+    height: 500px;
 
-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* padding: 20px; */
+
+  }
+
+.section__productos {
+  
+  background-color: red;
+  
+    width: 400px;
+    height: 500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+  form {
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+h1 {
+
+}
+
+
+.intro {
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
   display: block;
 }
 
-h1 {
-  text-align: center;
-}
   
-p {
-  /* background-color: black; */
-  
-  margin-left: 30px;
-  /* margin-right: 10px; */
- 
-}
-
-div {
-  margin-left: 30px;
-}   
 
   input[type=email] {
-   width: 500px;
+    width: 100%;
 
 
     color: hsl(0, 0%, 100%);
@@ -71,23 +99,18 @@ div {
     padding: 16px;
     font-weight: 700;
     letter-spacing: 1px;
-    margin-left: 30px;
-    
+
   }
 
-
-    input[type=submit] {
-   width: 500px;
-
-
-   background-color: hsl(169, 82%, 27%);
+  input[type=submit] {
+    width: 100%;
+    border: none;
+    background-color: hsl(169, 82%, 27%);
     color: hsl(0, 0%, 100%);
-    
+    /* white <> #FFFFFF <> #FFF */
     border-radius: 8px;
     padding: 16px;
     font-weight: 700;
     letter-spacing: 1px;
-    margin-left: 30px;
 
   }
-
