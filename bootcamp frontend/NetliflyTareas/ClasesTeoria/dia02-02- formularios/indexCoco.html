@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML - Formularios</title>
+  <!--le pongo forma con CSS con picocss-->
+  <xxxxlink
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+  >
+</head>
+<body>
+  <main class="container">
+    <h1>Formularios + Inputs</h1>
+
+    <form>
+      <h2>Inputs</h2>
+      
+      <label for="text1">Input tipo texto</label>
+      <input type="text" placeholder="Ingresa algún texto" id="text1" />
+
+      <label> <!--otra forma de hacerlo-->
+        Input (solo lectura)
+        <input type="text" placeholder="Input de solo lectura" readonly value="Copia este código" />
+      </label>
+
+      <label>
+        Input (Desactivado)
+        <input type="text" placeholder="Input de solo lectura" disabled />
+      </label>
+
+      <label>
+        Input tipo number
+        <input type="number" placeholder="Edad Ej. 18" min="18" max="90" />
+      </label>
+
+      <label>
+        Input tipo email
+        <input type="email" placeholder="Correo Ej. correo@mail.com" />
+      </label>
+
+      <label>
+        Input tipo range (edad)
+        <input type="range" min="0" max="100" step="10" />
+      </label>
+
+      <label>
+        Input teléfono
+        <input type="tel" placeholder="(+1) 999 999 999" />
+      </label>
+
+      <label>
+        Input tipo url
+        <input type="url" placeholder="Ej. misitio.com" />
+      </label>
+
+      <label>
+        Input tipo password
+        <input type="password" placeholder="Password" />
+      </label>
+
+      <label>
+        Input tipo color
+        <input type="color" />
+      </label>
+
+      <label>
+        Input tipo busqueda
+        <input type="search" />
+      </label>
+
+      <label>
+        Input tipo button
+        <input type="button" />
+        <input type="button" />
+      </label>
+      </label>
+
+
+    </form>
+  </main>
+</body>
+</html>
