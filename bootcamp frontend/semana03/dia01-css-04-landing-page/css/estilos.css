@@ -16,8 +16,9 @@ font-family: "Open Sans", sans-serif; */
 body {
   font-family: "Open Sans", sans-serif;
 
-  background-color: hsl(217, 28%, 15%);
   color: hsl(0, 0%, 100%);
+
+  background-color: hsl(218, 28%, 13%);
 }
 
 a {
@@ -38,6 +39,7 @@ img {
 .wrapper {
   /* width: 1440px; */
   width: min(100% - 42px, 1440px);
+  background-color: hsl(217, 28%, 15%);
 
   /* border: 1px solid blue; */
 }
@@ -56,7 +58,9 @@ img {
   align-items: center;
 
   margin: 0 auto;
-  margin-top: 42px;
+  padding-top: 42px;
+
+  background-color: hsl(217, 28%, 15%);
 }
 
 
@@ -87,6 +91,8 @@ img {
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: contain;
+
+  background-color: hsl(217, 28%, 15%);
 }
 
 .hero__image {}
@@ -193,3 +199,160 @@ TAMAÑOS DE PANTALLA SUGERIDOS:
 .productive__link {}
 
 /* TESTIMONIALS SECTION */
+
+.testimonials {
+  /* border: 1px solid red; */
+
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+  
+  background-color: hsl(218, 28%, 13%);
+}
+
+.testimonials--wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+
+  margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+  .testimonials--wrapper {
+    flex-direction: row;
+  }
+}
+
+/* TODO: Añadir el media query para ver las cajas de testimonios en fila con flexbox */
+
+/* 
+  pseudo-elemento: :after, :before
+  selectores: ?????
+*/
+
+.testimonial {
+  /* border: 1px solid yellow; */
+
+  background-color: hsl(219, 30%, 18%);
+
+  /* padding: TOP-RIGHT-BOTTOM-LEFT */
+  /* padding: TOP RIGHT BOTTOM LEFT */
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  border-radius: .5rem;
+
+  position: relative;
+}
+
+.testimonial:first-child:before {
+  content: '';
+
+  background-image: url(../images/bg-quotes.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  display: block;
+  width: 55px;
+  height: 45px;
+
+  position: absolute;
+  top: -30px;
+  left: 10px;
+  z-index: -1;
+}
+
+.testimonial__text {
+  font-size: 1.4rem;
+
+  /* border: 1px solid yellow; */
+
+  margin-bottom: 2rem;
+}
+
+.testimonial__profile {
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+
+  font-size: .9rem;
+}
+
+.testimonial__avatar {
+  border-radius: 50%;
+}
+
+.testimonial__user h4 {
+  font-weight: 700; /* Por defecto para el h4 */
+}
+
+.testimonial__user h5 {
+  font-weight: 400;
+}
+
+/* FOOTER SECTION */
+
+/* TODO: Terminar la maquetación de este footer según el diseño */
+
+.footer {
+  background-color: hsl(216, 53%, 9%);
+
+  padding: 15rem 0 5rem 0;
+}
+
+.footer--wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+
+  margin: 0 auto;
+
+  background-color: transparent;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4rem;
+
+  width: 100%;
+  justify-content: space-between;
+}
+
+@media (min-width: 992px) {
+  .footer-info {
+    flex-direction: row;
+  }
+}
+
+.footer-info__description {
+  width: 22rem;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.footer-info__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footer-info__contact span {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-info__links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footer-info__social {
+  display: flex;
+  gap: 1.5rem;
+}
