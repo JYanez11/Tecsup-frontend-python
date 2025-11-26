@@ -84,10 +84,10 @@ a {
 .header__wrapper {
   /* border: 1px solid blue; */
 
-  display: flex;
-  align-items: center;
+   display: flex; 
+  /* align-items: center; */
   gap: 2rem;
-}
+} 
 
 .header__links {
   display: none;

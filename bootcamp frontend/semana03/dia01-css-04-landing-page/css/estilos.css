@@ -195,15 +195,60 @@ TAMAÑOS DE PANTALLA SUGERIDOS:
 
 /* TODO: COLLABORATION SECTION */
 
-.collaboration {}
+.collaboration {
+  border: 1px solid yellow;
+   display: flex;
+ flex-direction: column;
+ align-items: center;
 
-.productive {}
+ gap: 2.5rem;
+}
+
+
+
+.productive {
+ /* border: 1px solid greenyellow; */
+ display: flex;
+ flex-direction: column;
+  gap: 1rem;
+   
+   text-align: left;
+}
 
 .productive__title {}
 
 .productive__text {}
 
-.productive__link {}
+
+
+.productive__link {
+   /* border: 1px solid greenyellow; */
+  display: inline-block; 
+  color: inherit;
+
+  text-decoration-line: underline;
+  color: rgb(255, 0, 93);
+}
+
+.productive__link::after {
+  
+  content: '';
+
+ 
+  display: inline-block;
+  width: 10%;
+  height: 10px;
+  margin-left: 5px;
+  align-items: center;
+  
+  /* Se usa la URL de la imagen del candado */
+  background-image: url(../images/icon-arrow.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+ 
+
+}
+  
 
 /* TESTIMONIALS SECTION */
 
@@ -296,6 +341,30 @@ TAMAÑOS DE PANTALLA SUGERIDOS:
 .testimonial__user h5 {
   font-weight: 400;
 }
+
+/* seccion early acces */
+
+.early_access {
+
+}
+
+.early__intro {
+  
+}
+
+.early__texto {
+  
+}
+
+.early__mail {
+  
+}
+
+.early__botton {
+  
+}
+
+
 
 /* FOOTER SECTION */
 
