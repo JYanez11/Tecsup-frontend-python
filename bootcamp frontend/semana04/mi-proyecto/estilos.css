@@ -9,13 +9,27 @@
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
-  /* COLORS */
+  /* COLORS borrar*/
 
   --primary-color-gold: #FFB742;
   --primary-color-dark-blue: #393646;
   --primary-color-dark-violet: #4F4557;
   --primary-color-light-violet: #6D5D6E;
-  --primary-color-white: #FFFFFF;
+ 
+
+  /* equilateros */
+  --equilateros-color-verde:#00B050;
+  --equilateros-color-azul: #1D428A ;
+  --equilateros-color-violeta: #6D8FDB; 
+  --equilateros-color-naranja: #FF8F1C;
+  
+  /* equilateros sevundarios*/
+  --equilateros-color-morado: #934BC9;
+  --equilateros-color-celeste: #00B0F0;
+  --equilateros-color-rojo: #FF0000;
+  --equilateros-color-amarillo: #ECFA6C ;
+   --primary-color-white: #FFFFFF;
+
 }
 
 /* GENERAL */
@@ -32,7 +46,7 @@ html {
 body {
   font-family: var(--font-primary);
 
-  background-color: var(--primary-color-dark-violet);
+  background-color: var(--equilateros-color-azul);
 
   color: var(--primary-color-white);
 }
@@ -41,8 +55,12 @@ a {
   color: inherit;
 
   text-decoration: none;
+   }
 
-}
+
+
+
+
 
 /* UTILS */
 
@@ -106,6 +124,14 @@ a {
   display: flex;
   align-items: center;
   gap: 1rem;
+
+  
+}
+
+.header__links img {
+  width: 3rem;
+  height: 3rem;
+
 }
 
 /* HERO SECTION */
@@ -154,6 +180,9 @@ a {
   margin-top: 1rem;
   margin-bottom: 1rem;
   border-radius: 50%;
+
+  width: 20rem;
+  height: 20rem;
 }
 
 .stack {
