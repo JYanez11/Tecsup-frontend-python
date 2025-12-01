@@ -8,6 +8,7 @@
   --font-weight-regular: 400;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
+ 
 
   /* COLORS*/
 
@@ -151,6 +152,7 @@ a {
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: contain;
+  background-color: var(--equilateros-color-violeta);
 }
 
 .hero__greeting {
@@ -160,8 +162,8 @@ a {
 
 .hero__greeting span {
  
-  color: var(--equilateros-color-verde);
-  font-weight: var(--font-weight-bold);
+  color: var(--equilateros-color-azul);
+  font-size: 3rem;
 }
 
 .hero__title {
@@ -230,9 +232,9 @@ a {
 /* TODO: Terminar la maquetación de este footer según el diseño */
 
 .footer {
-  background-color: hsl(216, 53%, 9%);
+  background-color: var(--equilateros-color-morado);
 
-  padding: 15rem 0 5rem 0;
+  padding: 5rem 0 5rem 0;
 }
 
 .footer--wrapper {
@@ -260,6 +262,10 @@ a {
   .footer-info {
     flex-direction: row;
   }
+}
+
+.footer-info p {
+  font-size: 3rem;
 }
 
 .footer-info__description {
