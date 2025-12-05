@@ -25,7 +25,11 @@
   --equilateros-color-celeste: #00B0F0;
   --equilateros-color-rojo: #FF0000;
   --equilateros-color-amarillo: #ECFA6C ;
-   --primary-color-white: #FFFFFF;
+
+   --color-white: #FFFFFF;
+   --color-black: #000000;
+   --color-celeste: #00C2FF;
+   --color-gris-oscuro: #4F4F4F;
 
 }
 

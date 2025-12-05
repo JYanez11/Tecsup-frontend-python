@@ -1,0 +1,173 @@
+/* Importar la fuente Poppins (ya incluida en el HTML, pero es una buena práctica tenerla) */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap'); */
+
+:root {
+    /* Paleta de colores */
+    --dark-bg: #453b51; /* Fondo principal oscuro */
+    --text-light: #f0f0f0; /* Texto claro */
+    --link-active: #ffc900; /* Color amarillo/naranja para el enlace activo */
+    --text-primary: #ffffff; /* Texto principal (títulos) */
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex; /* Para que el header y el main se apilen */
+    flex-direction: column;
+}
+
+/* --- BARRA DE NAVEGACIÓN (HEADER) --- */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%; /* Ajusta el padding lateral según tu preferencia */
+    width: 100%;
+    position: relative; /* Para la sombra (si se desea) */
+    z-index: 100;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--link-active); /* Color de resaltado */
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    padding-bottom: 5px; /* Para la línea inferior del activo */
+    transition: color 0.3s;
+}
+
+.nav-links .active {
+    color: var(--link-active);
+    border-bottom: 2px solid var(--link-active);
+}
+
+.social-icons i {
+    font-size: 20px;
+    margin-left: 15px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+/* --- SECCIÓN PRINCIPAL (HERO) --- */
+
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 50px 10%;
+    flex-grow: 1; /* Permite que ocupe el espacio restante */
+    position: relative;
+    overflow: hidden; /* Para contener la imagen de fondo de montaña (si la añades) */
+}
+
+.hero-content {
+    margin-bottom: 40px;
+    max-width: 800px;
+}
+
+.greeting {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--text-light);
+    margin-bottom: 5px;
+}
+
+.name {
+    color: var(--link-active);
+    font-weight: 600;
+}
+
+.title {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--text-light);
+    opacity: 0.8;
+}
+
+/* Imagen de Perfil */
+.profile-image-container {
+    margin-bottom: 50px;
+    border-radius: 50%;
+    /* Simula el contorno suave alrededor de la imagen si es necesario */
+    /* box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.1); */
+}
+
+.profile-image {
+    width: 180px; /* Ajusta el tamaño */
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    /* Para el efecto de borde suave y la sombra alrededor de la imagen de Figma */
+    border: 5px solid rgba(255, 255, 255, 0.1); 
+}
+
+/* --- SECCIÓN DE HABILIDADES (SKILLS) --- */
+
+.skills-section {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Espacio entre los íconos */
+    margin-top: 20px;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.skill-item img {
+    width: 60px; /* Tamaño del ícono */
+    height: 60px;
+    margin-bottom: 10px;
+    /* El diseño tiene un fondo/cuadrado sutil detrás de los íconos, puedes añadirlo con padding y un background */
+}
+
+.skill-item p {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-light);
+    opacity: 0.7;
+}
+
+/* --- OPCIONAL: Estilos para simular el fondo de montaña --- */
+/* Esto requeriría una imagen SVG o PNG de las montañas */
+/* .hero-section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 300px; 
+    background-image: url('mountains.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1; 
+} */

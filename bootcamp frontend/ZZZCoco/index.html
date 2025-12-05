@@ -3,208 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Pagos de Préstamos</title>
-    <!-- Carga de Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Configuración de color y fuente de Tailwind -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'primary-500': '#1e40af', // Blue-700
-                        'primary-600': '#1d4ed8', // Blue-600
-                        'accent': '#d97706', // Amber-600
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Estilos personalizados para los rangos (sliders) */
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: #1e40af; /* primary-500 */
-            cursor: pointer;
-            box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
-            transition: background 0.15s ease-in-out;
-        }
-
-        input[type="range"]:active::-webkit-slider-thumb {
-            background: #1d4ed8; /* primary-600 */
-        }
-    </style>
+    <title>Portafolio de Victor Doe</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-50 flex items-center justify-center min-h-screen p-4 font-sans">
+<body>
 
-    <div id="app" class="w-full max-w-lg bg-white rounded-xl shadow-2xl p-6 md:p-8">
-        <h1 class="text-3xl font-extrabold text-primary-500 mb-2">Calculadora de Préstamos</h1>
-        <p class="text-gray-600 mb-6">Calcula tu pago mensual, interés total y el costo general del préstamo.</p>
+    <header class="navbar">
+        <div class="logo">{vv}</div>
+        <nav class="nav-links">
+            <a href="#" class="active">Acerca De Mí</a>
+            <a href="#">Habilidades</a>
+            <a href="#">Portafolio</a>
+        </nav>
+        <div class="social-icons">
+            <i class="fas fa-moon"></i>
+            <i class="fab fa-github"></i>
+            <i class="fab fa-linkedin"></i>
+        </div>
+    </header>
 
-        <!-- Contenedor de Entradas (Inputs) -->
-        <div class="space-y-6" id="input-fields">
-
-            <!-- Monto del Préstamo -->
-            <div class="relative bg-gray-100 p-4 rounded-lg shadow-inner">
-                <label for="principal" class="block text-sm font-semibold text-gray-700 mb-2">Monto del Préstamo ($)</label>
-                <div class="flex items-center">
-                    <input type="range" id="principal" min="1000" max="500000" step="1000" value="100000"
-                           class="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer range-lg">
-                    <input type="number" id="principal_display" value="100000" min="1000" max="500000"
-                           class="ml-4 w-28 p-2 border border-gray-300 rounded-lg text-center text-lg font-medium">
-                </div>
-            </div>
-
-            <!-- Tasa de Interés Anual -->
-            <div class="relative bg-gray-100 p-4 rounded-lg shadow-inner">
-                <label for="rate" class="block text-sm font-semibold text-gray-700 mb-2">Tasa de Interés Anual (%)</label>
-                <div class="flex items-center">
-                    <input type="range" id="rate" min="0.5" max="25" step="0.1" value="5"
-                           class="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer range-lg">
-                    <input type="number" id="rate_display" value="5.0" min="0.5" max="25" step="0.1"
-                           class="ml-4 w-28 p-2 border border-gray-300 rounded-lg text-center text-lg font-medium">
-                </div>
-            </div>
-
-            <!-- Plazo del Préstamo (Años) -->
-            <div class="relative bg-gray-100 p-4 rounded-lg shadow-inner">
-                <label for="years" class="block text-sm font-semibold text-gray-700 mb-2">Plazo del Préstamo (Años)</label>
-                <div class="flex items-center">
-                    <input type="range" id="years" min="1" max="30" step="1" value="15"
-                           class="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer range-lg">
-                    <input type="number" id="years_display" value="15" min="1" max="30" step="1"
-                           class="ml-4 w-28 p-2 border border-gray-300 rounded-lg text-center text-lg font-medium">
-                </div>
-            </div>
-
-            <button onclick="calculateLoan()"
-                    class="w-full py-3 bg-primary-500 hover:bg-primary-600 text-white font-bold rounded-xl shadow-lg transition duration-200 transform hover:scale-[1.01]">
-                Calcular Pago Mensual
-            </button>
+    <main class="hero-section">
+        <div class="hero-content">
+            <p class="greeting">Hola, Soy <span class="name">Victor Doe ✍️</span></p>
+            <h1 class="title">Desarrollador Web Full-Stack</h1>
+            <p class="subtitle">Desarrollador especializado en Javascript, React.js, Vue, Python y Node.js.</p>
         </div>
 
-        <!-- Contenedor de Resultados (Output) -->
-        <div id="results" class="mt-8 pt-6 border-t border-gray-200">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">Resultados</h2>
+        <div class="profile-image-container">
+            <img src="profile.jpg" alt="Victor Doe" class="profile-image">
+        </div>
 
-            <div class="space-y-4">
-                <!-- Pago Mensual -->
-                <div class="flex justify-between items-center p-4 bg-primary-500 text-white rounded-xl shadow-lg">
-                    <span class="text-lg font-medium">Pago Mensual Estimado:</span>
-                    <span id="monthlyPayment" class="text-2xl font-extrabold">$0.00</span>
-                </div>
-
-                <!-- Interés Total -->
-                <div class="flex justify-between items-center p-4 bg-amber-100 text-accent rounded-xl shadow-md">
-                    <span class="text-lg font-medium">Interés Total Pagado:</span>
-                    <span id="totalInterest" class="text-xl font-bold">$0.00</span>
-                </div>
-
-                <!-- Costo Total del Préstamo -->
-                <div class="flex justify-between items-center p-4 bg-gray-100 text-gray-700 rounded-xl shadow-md">
-                    <span class="text-lg font-medium">Costo Total del Préstamo:</span>
-                    <span id="totalCost" class="text-xl font-bold">$0.00</span>
-                </div>
+        <div class="skills-section">
+            <div class="skill-item">
+                <img src="html.svg" alt="HTML Icon">
+                <p>HTML</p>
+            </div>
+            <div class="skill-item">
+                <img src="css.svg" alt="CSS Icon">
+                <p>CSS</p>
+            </div>
+            <div class="skill-item">
+                <img src="javascript.svg" alt="JavaScript Icon">
+                <p>Javascript</p>
+            </div>
+            <div class="skill-item">
+                <img src="react.svg" alt="React.Js Icon">
+                <p>React.Js</p>
+            </div>
+            <div class="skill-item">
+                <img src="nodejs.svg" alt="Node.js Icon">
+                <p>Node.js</p>
+            </div>
+            <div class="skill-item">
+                <img src="python.svg" alt="Python Icon">
+                <p>Python</p>
             </div>
         </div>
-    </div>
+    </main>
 
-    <script>
-        // Variables globales para los elementos del DOM
-        const principalInput = document.getElementById('principal');
-        const principalDisplay = document.getElementById('principal_display');
-        const rateInput = document.getElementById('rate');
-        const rateDisplay = document.getElementById('rate_display');
-        const yearsInput = document.getElementById('years');
-        const yearsDisplay = document.getElementById('years_display');
-
-        // Asocia los inputs de rango con los inputs de número para la sincronización
-        function setupSynchronization(rangeInput, numberInput) {
-            // Rango cambia el número
-            rangeInput.addEventListener('input', () => {
-                numberInput.value = rangeInput.value;
-                calculateLoan(); // Recalcula automáticamente al mover el slider
-            });
-
-            // Número cambia el rango
-            numberInput.addEventListener('input', () => {
-                // Asegura que el valor esté dentro del rango permitido
-                const value = parseFloat(numberInput.value);
-                if (value >= parseFloat(rangeInput.min) && value <= parseFloat(rangeInput.max)) {
-                    rangeInput.value = value;
-                    calculateLoan(); // Recalcula automáticamente al ingresar el valor
-                }
-            });
-        }
-
-        // Aplica la sincronización a todos los pares
-        setupSynchronization(principalInput, principalDisplay);
-        setupSynchronization(rateInput, rateDisplay);
-        setupSynchronization(yearsInput, yearsDisplay);
-
-        // Lógica principal de la calculadora
-        function calculateLoan() {
-            // 1. Obtener valores
-            const L = parseFloat(principalInput.value); // Monto principal (Principal)
-            const r_annual = parseFloat(rateInput.value) / 100; // Tasa anual como decimal
-            const t = parseFloat(yearsInput.value); // Plazo en años
-
-            // 2. Validar entradas
-            if (isNaN(L) || isNaN(r_annual) || isNaN(t) || L <= 0 || t <= 0) {
-                // Muestra 0.00 si las entradas no son válidas
-                document.getElementById('monthlyPayment').textContent = '$0.00';
-                document.getElementById('totalInterest').textContent = '$0.00';
-                document.getElementById('totalCost').textContent = '$0.00';
-                return;
-            }
-
-            // 3. Calcular la tasa de interés mensual y el número total de pagos
-            const i = r_annual / 12; // Tasa mensual
-            const n = t * 12; // Número total de pagos
-
-            let monthlyPayment = 0;
-            let totalCost = 0;
-            let totalInterest = 0;
-
-            if (r_annual === 0) {
-                // Caso especial para 0% de interés
-                monthlyPayment = L / n;
-                totalCost = L;
-                totalInterest = 0;
-            } else {
-                // Fórmula de pago de amortización: P = L [ i(1 + i)^n / ((1 + i)^n - 1) ]
-                const factor = Math.pow(1 + i, n);
-                monthlyPayment = L * i * factor / (factor - 1);
-                
-                totalCost = monthlyPayment * n;
-                totalInterest = totalCost - L;
-            }
-
-            // 4. Formatear y mostrar los resultados
-            const formatter = new Intl.NumberFormat('es-CL', { // Usamos formato español de Chile o similar para '$' y separadores
-                style: 'currency',
-                currency: 'USD', // Usamos USD como moneda de ejemplo
-                minimumFractionDigits: 2,
-            });
-
-            document.getElementById('monthlyPayment').textContent = formatter.format(monthlyPayment);
-            document.getElementById('totalInterest').textContent = formatter.format(totalInterest);
-            document.getElementById('totalCost').textContent = formatter.format(totalCost);
-        }
-
-        // Ejecutar el cálculo inicial al cargar la página
-        window.onload = function() {
-            // Asegura que todos los listeners estén configurados antes de calcular
-            calculateLoan(); 
-        };
-
-    </script>
 </body>
 </html>
