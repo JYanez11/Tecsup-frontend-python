@@ -1,66 +1,155 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio de Victor Doe</title>
-    <link rel="stylesheet" href="estilos.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contacto - Consultoría</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+
+                    /*
+                       --color-black: #000000;
+   --color-celeste: #00C2FF;
+   --color-gray-dark: #4F4F4F;
+                    */
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>.form-input.form-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-position: right 1rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAf5yKwpFqI6KPLZ6lQbwgrfwhDe7aTNpCNLkJwDnaKtvRuk03sWFPQLIIlqYezcms-kRGzYUG6vj4LYtWhdR98ngPEmTvZEAdZg-cIDpPsyHB0R0qYNbiJgF8xsZQb8v5KL5zgzPHlK_2D7hc1QMIMrwsPELkGH31WI_ikB9U9_yhQjx_SrI1FcFwIWRN_QUXcrNfhJERNmVcFRxHyMewQqKkmu72TqN2BNS4E_GF_vFVm_N_hYOu48u80VnwgMRZdcxi0EpLgOWI)
+    }
+.dark .form-input.form-select {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAf5yKwpFqI6KPLZ6lQbwgrfwhDe7aTNpCNLkJwDnaKtvRuk03sWFPQLIIlqYezcms-kRGzYUG6vj4LYtWhdR98ngPEmTvZEAdZg-cIDpPsyHB0R0qYNbiJgF8xsZQb8v5KL5zgzPHlK_2D7hc1QMIMrwsPELkGH31WI_ikB9U9_yhQjx_SrI1FcFwIWRN_QUXcrNfhJERNmVcFRxHyMewQqKkmu72TqN2BNS4E_GF_vFVm_N_hYOu48u80VnwgMRZdcxi0EpLgOWI)
+    }</style>
 </head>
-<body>
-
-    <header class="navbar">
-        <div class="logo">{vv}</div>
-        <nav class="nav-links">
-            <a href="#" class="active">Acerca De Mí</a>
-            <a href="#">Habilidades</a>
-            <a href="#">Portafolio</a>
-        </nav>
-        <div class="social-icons">
-            <i class="fas fa-moon"></i>
-            <i class="fab fa-github"></i>
-            <i class="fab fa-linkedin"></i>
-        </div>
-    </header>
-
-    <main class="hero-section">
-        <div class="hero-content">
-            <p class="greeting">Hola, Soy <span class="name">Victor Doe ✍️</span></p>
-            <h1 class="title">Desarrollador Web Full-Stack</h1>
-            <p class="subtitle">Desarrollador especializado en Javascript, React.js, Vue, Python y Node.js.</p>
-        </div>
-
-        <div class="profile-image-container">
-            <img src="profile.jpg" alt="Victor Doe" class="profile-image">
-        </div>
-
-        <div class="skills-section">
-            <div class="skill-item">
-                <img src="html.svg" alt="HTML Icon">
-                <p>HTML</p>
-            </div>
-            <div class="skill-item">
-                <img src="css.svg" alt="CSS Icon">
-                <p>CSS</p>
-            </div>
-            <div class="skill-item">
-                <img src="javascript.svg" alt="JavaScript Icon">
-                <p>Javascript</p>
-            </div>
-            <div class="skill-item">
-                <img src="react.svg" alt="React.Js Icon">
-                <p>React.Js</p>
-            </div>
-            <div class="skill-item">
-                <img src="nodejs.svg" alt="Node.js Icon">
-                <p>Node.js</p>
-            </div>
-            <div class="skill-item">
-                <img src="python.svg" alt="Python Icon">
-                <p>Python</p>
-            </div>
-        </div>
-    </main>
-
-</body>
-</html>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="container mx-auto px-4">
+<div class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-800 py-3">
+<div class="flex items-center gap-4 text-gray-900 dark:text-white">
+<div class="size-6 text-primary">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Consultoría</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-8">
+<nav class="flex items-center gap-9">
+<a class="text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Inicio</a>
+<a class="text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Servicios</a>
+<a class="text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Sobre Mí</a>
+<a class="text-primary dark:text-primary text-sm font-bold leading-normal" href="#">Contacto</a>
+</nav>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<span class="truncate">Agendar Reunión</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<div class="container mx-auto px-4 py-16 sm:py-24">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+<div class="flex flex-col gap-8">
+<div class="flex flex-col gap-3">
+<p class="text-gray-900 dark:text-white text-4xl sm:text-5xl font-black leading-tight tracking-[-0.033em]">Hablemos.</p>
+<p class="text-gray-500 dark:text-gray-400 text-base font-normal leading-normal max-w-md">Para consultas sobre mis servicios o para agendar una reunión, por favor completa el formulario. Me pondré en contacto contigo a la brevedad.</p>
+</div>
+<form class="flex flex-col gap-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<label class="flex flex-col flex-1">
+<p class="text-gray-900 dark:text-white text-sm font-medium leading-normal pb-2">Nombre</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800/50 focus:border-primary dark:focus:border-primary h-12 placeholder:text-gray-500 dark:placeholder:text-gray-500 px-4 text-sm font-normal leading-normal" placeholder="Ingresa tu nombre completo" value=""/>
+</label>
+<label class="flex flex-col flex-1">
+<p class="text-gray-900 dark:text-white text-sm font-medium leading-normal pb-2">Email</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800/50 focus:border-primary dark:focus:border-primary h-12 placeholder:text-gray-500 dark:placeholder:text-gray-500 px-4 text-sm font-normal leading-normal" placeholder="tu@email.com" type="email" value=""/>
+</label>
+</div>
+<label class="flex flex-col flex-1">
+<p class="text-gray-900 dark:text-white text-sm font-medium leading-normal pb-2">Servicio de Interés</p>
+<select class="form-input form-select flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800/50 focus:border-primary dark:focus:border-primary h-12 placeholder:text-gray-500 dark:placeholder:text-gray-500 px-4 text-sm font-normal leading-normal">
+<option value="">Selecciona un servicio</option>
+<option value="estrategia">Consultoría Estratégica</option>
+<option value="operaciones">Optimización de Operaciones</option>
+<option value="marketing">Marketing Digital</option>
+<option value="otro">Otro</option>
+</select>
+</label>
+<label class="flex flex-col flex-1">
+<p class="text-gray-900 dark:text-white text-sm font-medium leading-normal pb-2">Mensaje</p>
+<textarea class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800/50 focus:border-primary dark:focus:border-primary min-h-36 placeholder:text-gray-500 dark:placeholder:text-gray-500 p-4 text-sm font-normal leading-normal" placeholder="Escribe tu mensaje aquí..."></textarea>
+</label>
+<button class="flex min-w-[84px] w-full sm:w-auto cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors" type="submit">
+<span class="truncate">Enviar Mensaje</span>
+</button>
+</form>
+</div>
+<div class="flex flex-col gap-10">
+<div class="flex items-center gap-6">
+<img class="h-28 w-28 rounded-full object-cover" data-alt="Un retrato profesional de un hombre sonriendo con confianza, vestido con una camiseta azul y de pie frente a una pared texturizada. La iluminación es suave y resalta sus rasgos amigables." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbJbJNwf8iSQeczoJxbQKtkgk94SiGZtAm6A44Meuu__1rMgC0sJVsEbeUQIgCsgc_GqejE2Xq_v3o2M-8hfw215ksuBD2Pwy7gDQmY5ahoufIy0seyNKAKT4KJMNrGJFL5i5NG1BDrLZwrR4RplYYMnRsj-SQQ8lrEEkl-bvU1Y9vhQA-ebQOLeQjhnDixVsl8UeM9FeQcRi43HyEuw8klwqa5vsq5-9hxmnnWlztcKifimKfuzOd4ZQpr3rajaiWy-KJx44Cq5k"/>
+<div>
+<h3 class="text-2xl font-bold text-gray-900 dark:text-white">Juan Pérez</h3>
+<p class="text-primary font-medium">Consultor Principal</p>
+</div>
+</div>
+<div class="flex flex-col gap-6 pt-6 border-t border-gray-200 dark:border-gray-800">
+<h4 class="text-xl font-bold text-gray-900 dark:text-white">Otras formas de contacto</h4>
+<div class="space-y-4">
+<a class="flex items-center gap-4 group" href="mailto:contacto@consultoria.com">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white dark:bg-primary/20 dark:group-hover:bg-primary">
+<span class="material-symbols-outlined text-2xl">mail</span>
+</div>
+<div>
+<p class="text-sm text-gray-500 dark:text-gray-400">Email</p>
+<p class="font-medium text-gray-800 dark:text-gray-200 group-hover:text-primary dark:group-hover:text-primary transition-colors">contacto@consultoria.com</p>
+</div>
+</a>
+<a class="flex items-center gap-4 group" href="tel:+1234567890">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white dark:bg-primary/20 dark:group-hover:bg-primary">
+<span class="material-symbols-outlined text-2xl">call</span>
+</div>
+<div>
+<p class="text-sm text-gray-500 dark:text-gray-400">Teléfono</p>
+<p class="font-medium text-gray-800 dark:text-gray-200 group-hover:text-primary dark:group-hover:text-primary transition-colors">+1 (234) 567-890</p>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
