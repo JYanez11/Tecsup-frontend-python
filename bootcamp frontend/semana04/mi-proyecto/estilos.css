@@ -26,10 +26,12 @@
   --equilateros-color-rojo: #FF0000;
   --equilateros-color-amarillo: #ECFA6C ;
 
-   --color-white: #FFFFFF;
+   
    --color-black: #000000;
-   --color-blue-sky: #00C2FF;
    --color-gray-dark: #4F4F4F;
+   --color-blue-sky: #00C2FF;
+   --color-white: #FFFFFF;
+   
 
 }
 
