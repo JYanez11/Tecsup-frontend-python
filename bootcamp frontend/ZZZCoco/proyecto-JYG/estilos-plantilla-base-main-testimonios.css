@@ -1,0 +1,165 @@
+/* VARIABLES */
+
+:root {
+  /* FONTS */
+
+  --font-primary: "Poppins", sans-serif;
+  --font-size: 16px;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+
+  /* COLORS*/
+
+
+  /* basicos */
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-gris-oscuro: #4F4F4F;
+
+  /* fondo oscuro */
+  --color2-morado: #cd9bf4;
+  --color2-blue-sky: #54cff4;
+  --color2-amarillo: #dff136;
+  --color2-violeta-Equilatero: #6D8FDB;
+  --color2-naranja-Equilatero: #FF8F1C;
+
+
+  /* fondo claro */
+  --color1-verde-Equilatero: #00B050;
+  --color1-azul-Equilatero: #1D428A;
+  --color1-rojo-brillante: #d81b11;
+
+
+}
+
+/* GENERAL */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+body {
+  font-family: var(--font-primary);
+
+  background-color: var(--color1-azul-Equilatero);
+
+  color: var(--color-white);
+}
+
+a {
+  color: inherit;
+
+  text-decoration: none;
+}
+
+
+
+
+
+
+/* UTILS */
+
+.wrapper {
+  width: min(100% - 3rem, 1220px);
+  margin: 0 auto;
+
+  /* border: 1px solid red; */
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+
+
+/* TESTIMONIALS SECTION */
+
+.testimonials {
+  /* border: 1px solid red; */
+
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+  
+  background-color: hsl(218, 28%, 13%);
+}
+
+.testimonials--wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+
+  margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+  .testimonials--wrapper {
+    flex-direction: row;
+  }
+}
+.testimonial {
+  /* border: 1px solid yellow; */
+
+  background-color: hsl(219, 30%, 18%);
+
+  /* padding: TOP-RIGHT-BOTTOM-LEFT */
+  /* padding: TOP RIGHT BOTTOM LEFT */
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  border-radius: .5rem;
+
+  position: relative;
+}
+
+.testimonial:first-child:before {
+  content: '';
+
+  background-image: url(images/bg-quotes.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  display: block;
+  width: 55px;
+  height: 45px;
+
+  position: absolute;
+  top: -30px;
+  left: 10px;
+  z-index: -1;
+}
+
+.testimonial__text {
+  font-size: 1.4rem;
+
+  /* border: 1px solid yellow; */
+
+  margin-bottom: 2rem;
+}
+
+.testimonial__profile {
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+
+  font-size: .9rem;
+}
+
+.testimonial__avatar {
+  border-radius: 50%;
+}
+
+.testimonial__user h4 {
+  font-weight: 700; /* Por defecto para el h4 */
+}
+
+.testimonial__user h5 {
+  font-weight: 400;
+}
