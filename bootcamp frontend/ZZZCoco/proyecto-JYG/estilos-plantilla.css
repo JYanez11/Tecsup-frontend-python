@@ -48,9 +48,9 @@ html {
 body {
   font-family: var(--font-primary);
 
-  background-color: var(--equilateros-color-azul);
+  background-color: var(--color1-azul-Equilatero);
 
-  color: var(--primary-color-white);
+  color: var(--color-white);
 }
 
 a {
@@ -94,6 +94,8 @@ a {
 
 .header__menu {
   display: none;
+    color: var(--color2-naranja-Equilatero);
+  padding-bottom: 5px;
 }
 
 @media (min-width: 992px) {
@@ -103,28 +105,24 @@ a {
   }
 }
 
+
+.header__menu a:hover {
+  color: var(--color2-naranja-Equilatero);
+  transform: scale(1.3);
+}
+
 .header__menu a {
   font-size: 1.125rem;
-  color: var(--primary-color-white);
+  color: var(--color2-naranja-Equilatero);
   font-weight: var(--font-weight-semibold);
   text-transform: capitalize;
 
   transition: all;
 }
 
-.header__menu a:hover {
-  color: var(--equilateros-color-naranja);
-  transform: scale(1.3);
 
 
-}
 
-.header__menu {
-  color: var(--equilateros-color-naranja);
-  padding-bottom: 5px;
-
-
-}
 
 
 
@@ -148,7 +146,7 @@ a {
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: contain;
-  background-color: var(--equilateros-color-violeta);
+  background-color: var(--color2-violeta-Equilatero);
 }
 
 .hero__greeting {
@@ -158,7 +156,7 @@ a {
 
 .hero__greeting span {
 
-  color: var(--equilateros-color-azul);
+  color: var(--color1-azul-Equilatero);
   font-size: 3rem;
 }
 
@@ -181,6 +179,36 @@ a {
   height: 20rem;
 }
 
+
+.stack {
+
+  /* border: 1px solid red; */
+
+  display: grid;
+
+  
+
+  grid-template-columns: repeat(2, 1fr); 
+  justify-content:center;
+  align-items: center;
+  gap: 1rem;
+  margin: auto;
+}
+
+@media (min-width: 992px) {
+  .stack {
+    grid-template-columns: repeat(2, 1fr); /* solo hay 2 columnas, por eso el @media esta demas */
+  }
+}
+
+.stack__wrapper {
+  /* border: 1px solid red; */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .stack__links {
 
   display: flex;
@@ -197,49 +225,6 @@ a {
 
 }
 
-.stack {
-
-  /* border: 1px solid red; */
-
-  display: grid;
-
-  grid-template-columns: repeat(2, 1fr);
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  margin: auto;
-}
-
-@media (min-width: 992px) {
-  .stack {
-    grid-template-columns: repeat(6, 1fr);
-  }
-}
-
-.stack__wrapper {
-  /* border: 1px solid red; */
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.stack__box {
-  background-color: var(--equilateros-color-amarillo);
-  width: 7rem;
-  x height: 7rem;
-  border-radius: 0.5rem;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.stack__title {
-  font-size: 1rem;
-  font-weight: var(--font-weight-bold);
-  margin-bottom: 0.5rem;
-}
 
 .hero-info__contact {
   display: flex;
@@ -278,7 +263,7 @@ a {
 
 .formulario p {
 
-  color: var(--equilateros-color-amarillo);
+  color: var(--color2-naranja-Equilatero);
   margin-top: 3rem;
   width: 20rem;
   margin-bottom: 3rem;
@@ -291,16 +276,16 @@ a {
 
 
 .footer {
-  background-color: var(--equilateros-color-morado);
+  background-color: var(--color2-violeta-Equilatero);
 
-  padding: 5rem 0 5rem 0;
+  /* padding: 5rem 0 5rem 0; */
 }
 
 .footer--wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   ;
   gap: 2rem;
 
