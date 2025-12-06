@@ -101,6 +101,13 @@ a {
   background-color: transparent;
 }
 
+.footer__logo {
+  /* border: 1px solid red; */
+  width: 10rem;
+  height: auto;
+
+}
+
 .footer-info {
   display: flex;
   flex-direction: column;

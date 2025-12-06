@@ -90,7 +90,12 @@ a {
   padding: 2rem;
 }
 
-.header__logo {}
+.header__logo {
+  /* border: 1px solid red; */
+  width: 10rem;
+  height: auto;
+
+}
 
 .header__menu {
   display: none;
