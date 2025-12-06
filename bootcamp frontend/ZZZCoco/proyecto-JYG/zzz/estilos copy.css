@@ -1,0 +1,196 @@
+/* VARIABLES */
+
+:root {
+  /* FONTS */
+
+  --font-primary: "Poppins", sans-serif;
+  --font-size: 16px;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* COLORS */
+
+  --primary-color-gold: #FFB742;
+  --primary-color-dark-blue: #393646;
+  --primary-color-dark-violet: #4F4557;
+  --primary-color-light-violet: #6D5D6E;
+  --primary-color-white: #FFFFFF;
+}
+
+/* GENERAL */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-size: var(--font-size); /* REM */
+}
+
+body {
+  font-family: var(--font-primary);
+
+  background-color: var(--primary-color-dark-violet);
+
+  color: var(--primary-color-white);
+}
+
+a {
+  color: inherit;
+
+  text-decoration: none;
+}
+
+/* UTILS */
+
+.wrapper {
+  width: min(100% - 3rem, 1220px);
+  margin: 0 auto;
+
+  /* border: 1px solid red; */
+}
+
+/* HEADER SECTION */
+
+/* TODO: Terminar con el css de la sección Header */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 2rem; /* 32px = 2 x 16px */
+}
+
+.header__logo {
+  color: var(--primary-color-gold);
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.header__menu {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .header__menu {
+    display: flex;
+    gap: 1.5rem; /* 1.5 x 16px = 24px */
+  }
+}
+
+.header__menu a {
+  font-size: 1.125rem; /* 18 x 16px = 1.125rem */
+  font-weight: var(--font-weight-semibold);
+  text-transform: capitalize;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.header__menu a:hover {
+  color: var(--primary-color-gold);
+  transform: scale(1.1);
+  transform: rotate(15deg);
+}
+
+.header__menu .header__menu--active {
+  color: var(--primary-color-gold);
+  padding-bottom: 5px;
+  border-bottom: 2px solid var(--primary-color-gold);
+  /* text-decoration: underline; */
+}
+
+.header__links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* HERO SECTION */
+
+/* TODO: Terminar el diseño con css de la sección hero usando la maquetación en html */
+
+.hero {
+  /* border: 1px solid red; */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+
+  padding: 4rem;
+}
+
+.hero--bg {
+  background-image: url(images/bg.svg);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+}
+
+.hero__greeting {
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.hero__greeting span {
+  color: var(--primary-color-gold);
+  text-decoration: underline;
+}
+
+.hero__title {
+  font-size: 3rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.hero__description {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-regular);
+}
+
+.hero__photo {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+}
+
+.stack {
+  /* border: 1px solid yellow; */
+
+  display: grid;
+  /* grid-template-columns: 150px 150px 150px 150px 150px 150px; */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 992px) {
+  .stack {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.stack__wrapper {
+  /* border: 1px solid red; */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stack__box {
+  background-color: var(--primary-color-dark-violet);
+  width: 7rem; /* 112px = 7rem */
+  height: 7rem;
+  border-radius: 0.5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stack__title {
+  font-size: 1rem;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 0.5rem;
+}

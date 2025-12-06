@@ -31,7 +31,11 @@ console.log(typeof 20)     // number
 console.log(typeof 12.50)  // number
 console.log(typeof -56)    // number
 
-//  
+// STRING o Cadenas de texto
+
+console.log('Sebastian')
+console.log("Sebastian")
+console.log('Sebastian\'s')
 
 console.log(typeof 'Sebastian')     // string
 console.log(typeof "Sebastian")     // string
