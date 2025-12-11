@@ -570,6 +570,10 @@ const sumatoria = numeros.reduce(
 
 console.log(sumatoria)
 
+
+
+
+
 // Método SORT y TOSORTED, nos ayuda a ordenar un arreglo de elementos.
 // SORT: ⚠ ⚠ ⚠ Mute el arreglo original. Ordena cadenas de texto.
 
@@ -582,10 +586,16 @@ const ordenandoLenguajes = copiaDeLenguajes.sort()
 
 const ordenandoLanguajesMejorado = leguajesDeProgramacion.toSorted()
 
-console.log(ordenandoLenguajes)
-console.log(copiaDeLenguajes)
-console.log(ordenandoLanguajesMejorado)
-console.log(leguajesDeProgramacion)
+
+
+
+console.log('copia original', copiaDeLenguajes)
+console.log('nuevo de copia con sort', ordenandoLenguajes)
+
+console.log("original", leguajesDeProgramacion)
+console.log('nuevo de original con tosort', ordenandoLanguajesMejorado)
+
+
 
 // ejemplo con numeros, los consider por codigo ascii
 
