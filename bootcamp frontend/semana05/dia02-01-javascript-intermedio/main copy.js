@@ -1,39 +1,44 @@
-/// 8. Número más repetido
-// Dado un arreglo de números, encuentra cuál aparece más veces.
-// 👉 Pista: usa un contador para cada número.
+// ejercicios
 
+// EJERCICIO: Eliminar duplicados 
+// Usando filter() + indexOf() nos quedamos solo con la primera aparición.
+const nombres = ["Ana", "Luis", "Ana", "Pedro", "Luis"];
 
+// Resultado esperado: ["Ana", "Luis", "Pedro"]
 
+// EJERCICIO: Validar si todos los correos contienen “@” y quedarte solo con los válidos
 
-const numerosAarreglar = [1,2,3,3,3,3,4,4,5];
+const correos = ["test@gmail.com", "infohotmail.com", "admin@outlook.com"];
 
-function numeroMasRepetidoCORREGIDO(numerosARevisar) {
-    // Usa un objeto para mapear números (claves) a sus frecuencias (valores)
-    const frecuencias = {};
-    let masRepetido;
-    let maxFrecuencia = 0;
+// Resultado esperado: ["test@gmail.com", "admin@outlook.com"]
 
-    // 1. Contar frecuencias
-    for (let i = 0; i < numerosARevisar.length; i++) { // CORRECCIÓN: Sintaxis del for
-        const numero = numerosARevisar[i]; // El número actual
-        
-        // CORRECCIÓN: Uso eficiente de mapa
-        frecuencias[numero] = (frecuencias[numero] || 0) + 1;
+// EJERCICIO: Encontrar el primer número mayor a 100 y verificar si hay varios
+// Combina: find + some + filter
 
-        // 2. Comprobar si la frecuencia actual es el máximo
-        if (frecuencias[numero] > maxFrecuencia) {
-            maxFrecuencia = frecuencias[numero];
-            masRepetido = numero;
-        }
-    }
-    
-    // El resultado final que encontramos mientras contábamos
-    return masRepetido; 
-}
-
-console.log(`El número más repetido (corregido) es: ${numeroMasRepetidoCORREGIDO(numerosAarreglar)}`);
+const nums2 = [10, 55, 120, 80, 200];
 
 
 
 
 
+// TODO: Ejercicio con objetos- Manejos de las frutas
+
+const frutas = [
+  { nombre: "manzana", precio: 2, cantidad: 10 },
+  { nombre: "banana", precio: 1, cantidad: 0 },
+  { nombre: "naranja", precio: 1.5, cantidad: 5 },
+  { nombre: "kiwi", precio: 3, cantidad: 2 },
+  { nombre: "uva", precio: 2.5, cantidad: 20 }
+]
+
+// 1. includes → ¿tenemos "kiwi"?
+
+// 2. map → obtener solo los precios
+
+// 3. filter → frutas con stock disponible
+
+// 4. reduce → calcular el valor total del inventario
+
+// 5. every → ¿todas las frutas tienen precio mayor a 0?
+
+// 6. some → ¿hay alguna fruta sin stock?

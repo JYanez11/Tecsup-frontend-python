@@ -639,6 +639,12 @@ console.log(miArreglo)
 
 // TODO: Investigar los métodos indexOf, find, every, some, findIndex, flat
 
+
+
+
+
+// ejercicios
+
 // EJERCICIO: Eliminar duplicados 
 // Usando filter() + indexOf() nos quedamos solo con la primera aparición.
 const nombres = ["Ana", "Luis", "Ana", "Pedro", "Luis"];
@@ -655,6 +661,11 @@ const correos = ["test@gmail.com", "infohotmail.com", "admin@outlook.com"];
 // Combina: find + some + filter
 
 const nums2 = [10, 55, 120, 80, 200];
+
+
+
+
+
 
 
 // OBJETOS, Tipo de dato no primitivo
@@ -695,6 +706,7 @@ const miObjeto = {
 
 console.log(miObjetoVacio)
 console.log(miObjeto)
+
 
 // Leer los campos de un objeto (notación de punto y de corchete)
 
