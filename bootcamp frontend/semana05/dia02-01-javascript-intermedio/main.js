@@ -499,12 +499,16 @@ console.log(nombresInicionConVocales) // Resultado esperado: ["Ana", "Oscar", "E
 // Método MAP, devuelve un arreglo y modifica cada elemento pasando una función(callback)
 // El map siempre devuelve un arreglo nuevo
 
-const nombresConAsterisco = languages.map(function(lenguaje) {
-  return lenguaje + '*'
+const nombresConAsterisco = languages.map(function(yyy) {
+  return yyy + '*coco*'
 })
 
 console.log('MAP', nombresConAsterisco)
 console.log(languages)
+
+
+
+
 
 // EJERCICIO: Análisis de compras
 // Tienes un arreglo con los nombres de productos que un cliente compró en una tienda:
@@ -533,6 +537,13 @@ console.log(compras.filter(function(producto) {
 console.log(compras.map(function(producto) {
   return [producto, producto.length]
 }))
+
+
+
+
+
+
+
 // reduce: Cuenta cuántos productos en total compró el cliente.
 console.log()
 
@@ -575,6 +586,9 @@ console.log(ordenandoLenguajes)
 console.log(copiaDeLenguajes)
 console.log(ordenandoLanguajesMejorado)
 console.log(leguajesDeProgramacion)
+
+// ejemplo con numeros, los consider por codigo ascii
+
 
 const edades = [25, 12, 10, 89, 32, 81, 3]
 
