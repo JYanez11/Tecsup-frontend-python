@@ -94,7 +94,7 @@ const cliente = {
 
 console.log(producto + cliente) // ❌ 💔 😵 [object Object][object Object]
 
-const nuevoObjeto1 = { producto: producto, cliente: cliente }
+const nuevoObjeto1 = { producto: producto, cliente: cliente } 
 
 console.log(nuevoObjeto1) // {producto: {…}, cliente: {…}}
 
@@ -181,8 +181,8 @@ console.log('Hola, me llamo ' + unNombre + ' y tengo ' + unaEdad + ' años.')
 
 const mensaje = `Hola, me llamo ${unNombre}
 y tengo ${unaEdad} años.
-Y la suma de 49 + 96 es ${49 + 96}
-`
+Y la suma de 49 + 96 es ${49 + 96}`
+
 
 console.log(mensaje)
 
