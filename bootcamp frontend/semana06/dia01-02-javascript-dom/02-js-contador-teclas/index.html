@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Javascript + DOM: Contador de teclas presionadas</title>
 </head>
+
 <body>
+  <p id="totalPulsaciones">Total de teclas pulsadas: 0</p>
+
+
   <script>
     /* TODO: Ejercicio - Contador de teclas presionadas
 
@@ -17,6 +22,26 @@
     * Debe mostrarse en pantalla la última tecla presionada.
     * La información debe actualizarse sin recargar la página.
     */
+
+    let contadorTeclas = 0;
+
+    // Escucha el evento keydown en todo el documento
+    document.addEventListener('keydown', (evento) => {
+      // Solo incrementa si NO es una repetición automática de la tecla mantenida
+      if (!evento.repeat) {
+        contadorTeclas++;
+
+        // Actualiza el elemento DOM
+        const elementoContador = document.getElementById('totalPulsaciones');
+        if (elementoContador) {
+          elementoContador.textContent = `Total de teclas pulsadas: ${contadorTeclas}`;
+        }
+      }
+    });
+
+
+
   </script>
 </body>
+
 </html>
