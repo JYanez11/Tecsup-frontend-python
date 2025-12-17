@@ -4,10 +4,7 @@
 // Descripción: Retorna cuántas vocales contiene un texto dado, sin importar mayúsculas.
 
 function contarVocales(texto) {
-  return texto
-    .split('')
-    .filter(letra => letra.match(/[aeiouáéíóúü]/i))
-    .length
+  return texto.split('')
 }
 
 console.log('Ejercicio 1: Contar vocales')
@@ -15,16 +12,13 @@ console.log(contarVocales('Hola Mundo')) //  → 4
 console.log(contarVocales('AEIOU')) //  → 5
 console.log(contarVocales('xyz')) // → 0
 console.log(contarVocales('Programación')) //  → 5
-console
 
 
 // Ejercicio 2: Eliminar duplicados
 // Descripción: Elimina elementos duplicados de un array manteniendo el orden.
 
 function eliminarDuplicados(arr = []) {
-  return arr
-    .filter((item, index) => arr
-    .indexOf(item) === index)
+  return arr;
 }
 
 console.log('Ejercicio 2: Eliminar duplicados')
