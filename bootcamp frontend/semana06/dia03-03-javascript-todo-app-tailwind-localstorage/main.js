@@ -2,23 +2,31 @@ const taskInput = document.querySelector('.task__input')
 const taskClear = document.querySelector('.task__clear')
 const taskList = document.querySelector('.task__list')
 
-let tasks = [
-  {
-    id: 'tarea-1',
-    title: 'Estudiar javascript',
-    completed: false
-  },
-  {
-    id: 'tarea-2',
-    title: 'Salir al receso',
-    completed: true
-  },
-  {
-    id: 'tarea-3',
-    title: 'Resolver el reto de la semana',
-    completed: false
-  }
-]
+// let tasks = [
+//   {
+//     id: 'tarea-1',
+//     title: 'Estudiar javascript',
+//     completed: false
+//   },
+//   {
+//     id: 'tarea-2',
+//     title: 'Salir al receso',
+//     completed: true
+//   },
+//   {
+//     id: 'tarea-3',
+//     title: 'Resolver el reto de la semana',
+//     completed: false
+//   }
+// ]
+
+let tasks = JSON.parse(localStorage.getItem('TASKS_LS')) ?? []
+
+console.log(tasks)
+
+function saveTasksInLocalStorage(tasks = []) {
+  localStorage.setItem('TASKS_LS', JSON.stringify(tasks))
+}
 
 function renderTasks(tasks = []) {
   // console.log('Renderizando tasks...', tasks)
@@ -81,21 +89,27 @@ taskInput.addEventListener('keydown', function(event) {
     renderTasks(tasks)
 
     taskInput.value = ''
+
+    saveTasksInLocalStorage(tasks)
   }
 })
 
 taskList.addEventListener('click', (event) => {
   const { target } = event
 
-  if (target.tagName === 'BUTTON' && target.classList.contains('task-item__remove')) {
+  const buttonRemove = event.target.closest('.task-item__remove')
+
+  if (buttonRemove) {
     console.log('Eliminando tarea...')
-    const { id } = target.dataset // Id que queremos eliminar en data-id
+    const { id } = buttonRemove.dataset // Id que queremos eliminar en data-id
 
     console.log(id)
 
     tasks = tasks.filter(task => task.id !== id)
 
     renderTasks(tasks)
+
+    saveTasksInLocalStorage(tasks)
   }
 
   // TODO: Al presionar el check debe completarse la tarea en el arreglo de tasks
@@ -116,6 +130,8 @@ taskList.addEventListener('click', (event) => {
     renderTasks(tasks)
 
     console.log(tasks)
+
+    saveTasksInLocalStorage(tasks)
   }
 })
 
@@ -124,6 +140,8 @@ taskClear.addEventListener('click', function(event) {
   tasks = tasks.filter(task => !task.completed)
 
   renderTasks(tasks)
+
+  saveTasksInLocalStorage(tasks)
 })
 
 
