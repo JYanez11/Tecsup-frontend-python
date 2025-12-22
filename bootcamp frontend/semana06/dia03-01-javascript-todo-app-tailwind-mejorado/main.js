@@ -87,6 +87,8 @@ taskInput.addEventListener('keydown', function(event) {
 taskList.addEventListener('click', (event) => {
   const { target } = event
 
+  // BUTTON SE CONFUNDE CON LA IMAGEN, POR ESO NO FUNCIONA BIEN, ES MEJOR USAR event.target.closest
+
   if (target.tagName === 'BUTTON' && target.classList.contains('task-item__remove')) {
     console.log('Eliminando tarea...')
     const { id } = target.dataset // Id que queremos eliminar en data-id
