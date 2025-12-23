@@ -2,6 +2,8 @@ const taskInput = document.querySelector('.task__input')
 const taskClear = document.querySelector('.task__clear')
 const taskList = document.querySelector('.task__list')
 
+// las tareas las crea con arreglo de objetos en javascript
+
 let tasks = [
   {
     id: 'tarea-1',
