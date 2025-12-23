@@ -10,6 +10,8 @@ console.log(taskList)
 
 // CALLBACK: Es una función que usamos como parámetro de otras funciones.
 
+// paso 1: crear la tarea con todos sus elementos
+
 taskAdd.addEventListener('click', function(event) {
   // Se ejecutará cuando hagamos click en el botón 'Añadir tarea'
   console.log('Click!', taskInput.value)
@@ -45,6 +47,9 @@ taskAdd.addEventListener('click', function(event) {
   taskInput.value = '' // Limpiamos la caja de texto después de crear la tarea
 })
 
+// paso 2: eliminado la tarea completa desde el parent LI y 
+  // marcar tareas completadas con etiqueta stye checked
+
 taskList.addEventListener('click', function(event) {
   console.log('Hice click en cualquier parte de la lista ul')
 
@@ -57,6 +62,7 @@ taskList.addEventListener('click', function(event) {
 
     target.parentElement.remove()
   }
+
 
   // TODO: Mediante el checkbox deber tachar el texto del span para completar la tarea
   if(target.tagName === 'INPUT' && target.type === 'checkbox') {
