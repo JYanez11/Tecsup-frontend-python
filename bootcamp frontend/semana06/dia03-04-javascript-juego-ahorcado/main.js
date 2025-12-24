@@ -1,70 +1,62 @@
-const elPalabra = document.querySelector('.ahorcado__palabra')
-const elBotones = document.querySelector('.ahorcado__botones')
-const elResultado = document.querySelector('.ahorcado__resultado')
-const elReiniciar = document.querySelector('.ahorcado__reiniciar')
+const elPalabra = document.querySelector(".ahorcado__palabra");
+const elBotones = document.querySelector(".ahorcado__botones");
+const elResultado = document.querySelector(".ahorcado__resultado");
+const elReiniciar = document.querySelector(".ahorcado__reiniciar");
 
 // elPalabra.textContent = 'HOLA'
 
-const PALABRA_RESPUESTA = 'JAVA'
+const PALABRA_RESPUESTA = "JAVA";
 
-let letrasAdivinadas = ''
+let letrasAdivinadas = "";
 
 // creando el alfabeto
 
-const ALFABETO = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')  // Arreglo
-
+const ALFABETO = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""); // Arreglo
 
 // es solo un bloque
 const renderizarAlfabeto = () => {
-  ALFABETO.forEach(letra => {
-    const boton = document.createElement('button')
+  ALFABETO.forEach((letra) => {
+    const boton = document.createElement("button");
 
-    boton.textContent = letra
+    boton.textContent = letra;
 
-    boton.className = 'bg-blue-500 p-2 text-white font-bold text-2xl cursor-pointer hover:bg-blue-600 duration-300 rounded'
+    boton.className =
+      "bg-blue-500 p-2 text-white font-bold text-2xl cursor-pointer hover:bg-blue-600 duration-300 rounded";
 
-    // paso 1 - analizando botones y acciones
     
-    boton.addEventListener('click', (event) => {
-      letrasAdivinadas += letra
-     
+     // crea botonera en arreglo
+     elBotones.appendChild(boton);
+    
+      // paso 1 - analizando botones y acciones
 
-      elPalabra.textContent = PALABRA_RESPUESTA
-        .split('')
-        .map(letra => letrasAdivinadas.includes(letra) ? letra : '#')
-        .join('')
-        // separa la palabra respuesta para compararla con la letraadivinada e incorprar la letra adivinada
-        // crea '_' para poder colocar el ganaste y el comienza nuevamente, que es complemento del las _ del html
-      
-      if (!elPalabra.textContent.includes('#')) {
-        console.log('GANASTE!')
+    boton.addEventListener("click", (event) => {
+      letrasAdivinadas += letra;
 
-               
-        elResultado.classList.toggle('hidden')
-        elReiniciar.classList.toggle('hidden')
+      elPalabra.textContent = PALABRA_RESPUESTA.split("")
+        .map((letra) => (letrasAdivinadas.includes(letra) ? letra : "#"))
+        .join("");
+      // separa la palabra respuesta para compararla con la letraadivinada e incorprar la letra adivinada
+      // crea '_' para poder colocar el ganaste y el comienza nuevamente, que es complemento del las _ del html
+
+      if (!elPalabra.textContent.includes("#")) {
+        console.log("GANASTE!");
+
+        elResultado.classList.toggle("hidden");
+        elReiniciar.classList.toggle("hidden");
       }
-    })
+    });
 
-    // crea botonera en arreglo
-    // console.log(boton)
-    elBotones.appendChild(boton)
    
-  })
+  });
 
   // paso 2- reiniciar
 
-  elReiniciar.addEventListener('click', (event) => {
-  letrasAdivinadas = ''
-  elPalabra.textContent = '___________'
-  elResultado.classList.toggle('hidden')
-  elReiniciar.classList.toggle('hidden')
+  elReiniciar.addEventListener("click", (event) => {
+    letrasAdivinadas = "";
+    elPalabra.textContent = "___________";
+    elResultado.classList.toggle("hidden");
+    elReiniciar.classList.toggle("hidden");
+  });
+};
 
-})
-
-}
-
-
-renderizarAlfabeto()
-
-
-
+renderizarAlfabeto();
