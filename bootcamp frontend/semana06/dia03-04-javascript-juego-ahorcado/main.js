@@ -31,14 +31,15 @@ const renderizarAlfabeto = () => {
 
       elPalabra.textContent = PALABRA_RESPUESTA
         .split('')
-        .map(letra => letrasAdivinadas.includes(letra) ? letra : '_')
+        .map(letra => letrasAdivinadas.includes(letra) ? letra : '#')
         .join('')
         // separa la palabra respuesta para compararla con la letraadivinada e incorprar la letra adivinada
         // crea '_' para poder colocar el ganaste y el comienza nuevamente, que es complemento del las _ del html
       
-      if (!elPalabra.textContent.includes('_')) {
+      if (!elPalabra.textContent.includes('#')) {
         console.log('GANASTE!')
-        
+
+               
         elResultado.classList.toggle('hidden')
         elReiniciar.classList.toggle('hidden')
       }
