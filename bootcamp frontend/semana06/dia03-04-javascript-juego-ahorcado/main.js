@@ -5,7 +5,7 @@ const elReiniciar = document.querySelector('.ahorcado__reiniciar')
 
 // elPalabra.textContent = 'HOLA'
 
-const PALABRA_RESPUESTA = 'JAVASCRIPT'
+const PALABRA_RESPUESTA = 'JAVA'
 
 let letrasAdivinadas = ''
 
@@ -50,8 +50,20 @@ const renderizarAlfabeto = () => {
    
   })
 
+  // paso 2- reiniciar
+
+  elReiniciar.addEventListener('click', (event) => {
+  letrasAdivinadas = ''
+  elPalabra.textContent = '___________'
+  elResultado.classList.toggle('hidden')
+  elReiniciar.classList.toggle('hidden')
+
+})
+
 }
 
-// TODO: Reiniciar el juego al presionar el boton '¡Empezar de nuevo!
 
 renderizarAlfabeto()
+
+
+
