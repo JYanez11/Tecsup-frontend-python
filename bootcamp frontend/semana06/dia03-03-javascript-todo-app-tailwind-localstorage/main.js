@@ -21,13 +21,19 @@ const taskList = document.querySelector('.task__list')
 //   }
 // ]
 
+// crea variable task
 let tasks = JSON.parse(localStorage.getItem('TASKS_LS')) ?? []
+// como no definio la variable TASK_LS primero, por eso le dice que si es null la cree
 
 console.log(tasks)
+
+// crea funcion para guardar en localStorage el objeto
 
 function saveTasksInLocalStorage(tasks = []) {
   localStorage.setItem('TASKS_LS', JSON.stringify(tasks))
 }
+
+// crea funcion render
 
 function renderTasks(tasks = []) {
   // console.log('Renderizando tasks...', tasks)
@@ -66,10 +72,13 @@ function renderTasks(tasks = []) {
 
   console.log(lista)
   taskList.innerHTML = lista
+  // inserta en html
 }
 
 // TODO - 01 Al presionar enter en la caja de texto debemos agregr una nueva tarea a la lista
 
+
+// ingreso de tarea
 taskInput.addEventListener('keydown', function(event) {
   if (event.key === 'Enter') {
     // Lógica para agregar una nueva tarea
@@ -94,6 +103,8 @@ taskInput.addEventListener('keydown', function(event) {
     saveTasksInLocalStorage(tasks)
   }
 })
+
+// gestion de tasklist
 
 taskList.addEventListener('click', (event) => {
   const { target } = event
@@ -137,6 +148,7 @@ taskList.addEventListener('click', (event) => {
 })
 
 // TODO: Al hacer click en el botón 'Limpiar tareas completadas' debemos remover todas las tareas completadas. Hay que llamar al método render también.
+// gestion de tarea completada
 taskClear.addEventListener('click', function(event) {
   tasks = tasks.filter(task => !task.completed)
 
@@ -147,3 +159,6 @@ taskClear.addEventListener('click', function(event) {
 
 
 renderTasks(tasks)
+
+
+// gestion de modificar una tarea
