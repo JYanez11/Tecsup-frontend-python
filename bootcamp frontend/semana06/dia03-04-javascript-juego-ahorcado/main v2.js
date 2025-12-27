@@ -34,11 +34,15 @@ const renderizarAlfabeto = () => {
 
   renderizarAlfabeto()
 
-  const boton2 = document.querySelector(".boton");
-  // cocoboton y boton 2
+   // cocoboton y boton 2
   
-    boton2.addEventListener("click", (event) => {
-      letrasAdivinadas += letra;
+    elBotones.addEventListener("click", (event) => {
+      if (event.target.tagName === 'BUTTON') {
+        let letra = event.target.textContent; // Por ejemplo, obtener la letra del botón
+        letrasAdivinadas += letra;
+        console.log("Letra añadida:", letra);
+      
+      
 
       elPalabra.textContent = PALABRA_RESPUESTA.split("")
         .map((letra) => (letrasAdivinadas.includes(letra) ? letra : "#"))
@@ -52,7 +56,7 @@ const renderizarAlfabeto = () => {
         elResultado.classList.toggle("hidden");
         elReiniciar.classList.toggle("hidden");
       }
-    });
+    }});
 
    
  
@@ -67,4 +71,4 @@ const renderizarAlfabeto = () => {
   });
 
 
-renderizarAlfabeto();
+// renderizarAlfabeto();
