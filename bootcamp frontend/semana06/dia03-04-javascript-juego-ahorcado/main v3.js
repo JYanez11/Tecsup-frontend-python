@@ -15,7 +15,7 @@ const iniciarJuego = () => {
   // Seleccionamos palabra nueva
   const indice = Math.floor(Math.random() * PALABRAS_POSIBLES.length);
   palabraRespuesta = PALABRAS_POSIBLES[indice];
-  console.log(Math.random() * PALABRAS_POSIBLES.length)
+  // console.log(Math.random() * PALABRAS_POSIBLES.length)
   
   // Dibujamos los guiones iniciales según el largo de la palabra elegida
   elPalabra.textContent = "_".repeat(palabraRespuesta.length);
