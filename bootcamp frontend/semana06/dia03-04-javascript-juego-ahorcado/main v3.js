@@ -32,7 +32,7 @@ const renderizarAlfabeto = () => {
   ALFABETO.forEach((letra) => {
     const boton = document.createElement("button");
     boton.textContent = letra;
-    boton.className = "boton bg-blue-500 p-2 text-white font-bold text-2xl cursor-pointer hover:bg-blue-600 duration-300 rounded";
+    boton.className = "bg-blue-500 p-2 text-white font-bold text-2xl cursor-pointer hover:bg-blue-600 duration-300 rounded";
     elBotones.appendChild(boton);
   });
 };
