@@ -2,12 +2,17 @@ const taskInput = document.querySelector('.task__input')
 const taskClear = document.querySelector('.task__clear')
 const taskList = document.querySelector('.task__list')
 
+// trae datos guardados en memoria local
 let tasks = JSON.parse(localStorage.getItem('TASKS_LS')) ?? []
 
+
+// crea funcion para grabar en memoria temporal
 function saveTasksInLocalStorage(tasks = []) {
   localStorage.setItem('TASKS_LS', JSON.stringify(tasks))
 }
 
+
+// crea funcion render
 function renderTasks(tasks = []) {
   let lista = ''
   tasks.forEach(task => {
@@ -47,6 +52,7 @@ taskInput.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
     const value = event.target.value.trim()
     if (value === "") return 
+    // return detiene la funcion y trim elimina espacios vacios al inicio y final
 
     const newTask = {
       id: crypto.randomUUID(),
@@ -54,6 +60,7 @@ taskInput.addEventListener('keydown', (event) => {
       completed: false
     }
 
+    // agrega la nueva tarea al arreglo y rederiza y graba en memoria local
     tasks.push(newTask)
     renderTasks(tasks)
     saveTasksInLocalStorage(tasks)
@@ -65,6 +72,7 @@ taskInput.addEventListener('keydown', (event) => {
 taskList.addEventListener('click', (event) => {
   const target = event.target
   const id = target.closest('[data-id]')?.dataset.id
+  // ? hace que devuelva undefine si no encuentra elemento
 
   // 1. Eliminar
   const buttonRemove = target.closest('.task-item__remove')
