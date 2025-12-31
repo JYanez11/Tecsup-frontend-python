@@ -88,7 +88,6 @@ taskList.addEventListener('click', (event) => {
     if (newTitle && newTitle.trim() !== "") {
       taskToEdit.title = newTitle.trim()
     }
-    // al cambiar taskToEdit, cambia task con id
   }
 
   // 3. Checkbox (Completar)
