@@ -61,7 +61,7 @@ Tenemos que crear una función que recibe el número de céntimos que hay que de
 function getCoins(change) {
   const monedas = [1, 2, 5, 10, 20, 50]
   
-  let acumulador = change
+  let acumulador = change  // change es el input, la cantidad de dinero a dar cambio
 
   return monedas
     .reverse()
@@ -73,6 +73,7 @@ function getCoins(change) {
       }
       
       return cociente
+      // map para cuando han pasado todos las monedas, el reverse se hace para comenzar por la moneda mas alta
     })
     .reverse()
 }
@@ -99,12 +100,15 @@ Los regalos son cadenas de texto y los materiales son caracteres . Tu tarea es e
 
 [1, 2, 3, 4, 5, -5].some(numero => numero % 2 === 0);
 
+// ejercicio
+
 function manufacture(gifts, materials) {
   return gifts.filter((gift) => {
     const copiaDelRegalo = [...gift]
 
     return copiaDelRegalo.every(letraDelRegalo => {
       return materials.includes(letraDelRegalo)
+      // letraDelRegalo es cada letra que valida que este incluida en materials, y con every garantiza que sean todas
     })
   })
 }
