@@ -1,3 +1,5 @@
+// definicion dépreguntas
+
 const questions = [
   {
     id: 1111,
@@ -29,12 +31,16 @@ const questions = [
   }
 ]
 
+// creo variables
+
 let correctAnswersCounter = 0 // Contador
 
 let currentQuestionIndex = 0
 
 const questionAndResults = document.getElementById('questions-and-results')
 
+
+// creo funcion de proxima pregunta
 function nextQuestion(event) {
   // TODO: Validar que no tenemos más preguntas para mostrar
 
@@ -48,6 +54,8 @@ function nextQuestion(event) {
   renderQuestions()
 }
 
+// creo funcion para pregunta anterior
+
 function prevQuestion(event) {
   // TODO: Añadir el botón "Anterior" con su funcionalidad respectiva
 
@@ -60,6 +68,8 @@ function prevQuestion(event) {
   renderQuestions()
 }
 
+// creo funcion para validar respuesta
+
 function respondQuestion(event, questionSelected) {
   console.log(questionSelected)
   const currentQuestion = questions[currentQuestionIndex]
@@ -70,7 +80,7 @@ function respondQuestion(event, questionSelected) {
     correctAnswersCounter = correctAnswersCounter + 1 // Forma larga 
   }
 
-  // TODO: Mostrar las respuestas correctas e incorrectas con sus colores respectivos
+  // Mostrar las respuestas correctas e incorrectas con sus colores respectivos
 
   const answerButtons = document.querySelectorAll('[data-answer]')
 
@@ -85,12 +95,15 @@ function respondQuestion(event, questionSelected) {
   })
 }
 
+// creo funcion comenzar de nuevo
 function startAgain(event) {
   correctAnswersCounter = 0
   currentQuestionIndex = 0
 
   renderQuestions()
 }
+
+// creo funcion mostrar resultados
 
 function showResults(event) {
   // TODO: Terminar la pantalla de mostrar resultados con los datos respectivos para que sean dinámicos.
@@ -125,6 +138,8 @@ function showResults(event) {
   `
 }
 
+// creo funcion render question
+
 function renderQuestions() {
   const currentQuestion = questions[currentQuestionIndex]
 
@@ -139,7 +154,7 @@ function renderQuestions() {
       <div class="flex flex-col items-start mb-10">
         <button
           class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-left mr-2 mb-2 w-full"
-          onclick="respondQuestion(event, 0)"
+          onclick="respondQuestion(event, 0)" 
           data-answer="0"
         >
           ${currentQuestion.answerList[0]}
