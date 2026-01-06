@@ -92,6 +92,7 @@ function respondQuestion(event, questionSelected) {
       button.className = 'text-white border border-red-600 bg-red-600 font-medium rounded-lg text-sm px-5 py-2.5 text-left mr-2 mb-2 w-full'
     }
     button.setAttribute('disabled', 'disabled')
+    // bloquear los botones una vez que el usuario ha respondido
   })
 }
 
