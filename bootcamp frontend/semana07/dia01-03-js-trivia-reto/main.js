@@ -84,6 +84,7 @@ function respondQuestion(event, questionSelected) {
 
   const answerButtons = document.querySelectorAll('[data-answer]')
 
+  // forEach para que cambie todos los botones, la variable boton es la de answerBoton (0,1,2)
   answerButtons.forEach(button => {
     if (Number(button.dataset.answer) === currentQuestion.correctAnswer) {
       // Llegamos cuando presionamos el botón con la alternativa correcta
