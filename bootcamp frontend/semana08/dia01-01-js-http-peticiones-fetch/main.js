@@ -35,12 +35,26 @@ const url = "https://jsonplaceholder.typicode.com/todos"
 // Estados de un promesa -> pending, fulfilled y rejected
 
 // fetch(url)
-//   .then(response => response.json()) // Se ejecuta cuando la respuesta llegó correctamente y además convertimos la respuesta a un objeto JS
+//   .then(response => response.json()) // Se ejecuta cuando la respuesta llegó correctamente
+//          y además convertimos la respuesta a un objeto JS
 //   .then(data => {
 //     console.log(data) // Aquí podemos usar el objeto JS
 //     console.log(data[0].title)
 //   })
 
+// otro ejercicio
+fetch(url)
+  .then(respuesta => respuesta.json())
+  .then(data => {
+    console.log(data)
+    renderTodos(data)
+  })
+  .catch(error => {
+    // Sirve para controlar errores inesperados
+    console.log(error)
+  })
+
+  
 const renderTodos = (todos = []) => {
   const divApp = document.querySelector('#app')
 
@@ -52,17 +66,6 @@ const renderTodos = (todos = []) => {
 
   divApp.innerHTML = todoList
 }
-
-fetch(url)
-  .then(respuesta => respuesta.json())
-  .then(data => {
-    console.log(data)
-    renderTodos(data)
-  })
-  .catch(error => {
-    // Sirve para controlar errores inesperados
-    console.log(error)
-  })
 
 // TODO: Renderizar la lista de posts del servicio jsonplaceholder con su titulo, id y body
 
