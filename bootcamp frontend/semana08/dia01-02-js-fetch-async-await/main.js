@@ -1,8 +1,5 @@
 const url = "https://jsonplaceholder.typicode.com/users"
 
-
-// caso 1 : fetchUsersSinRetorno (Básico)
-
 // fetch(url)
 //   .then(respuesta => respuesta.json())
 //   .then(data => {
@@ -13,12 +10,7 @@ const url = "https://jsonplaceholder.typicode.com/users"
 //     console.log(error)
 //   })
 
-
-// caso 2 async await (Sin retorno)
-// otra formorma de escribir
-
-
-  const fetchUsersSinRetorno = async () => {
+const fetchUsersSinRetorno = async () => {
   const response = await fetch(url)
 
   const data = await response.json()
@@ -30,23 +22,15 @@ const url = "https://jsonplaceholder.typicode.com/users"
 
 // console.log(fetchUsersSinRetorno()) // Promise {<pending>}
 
-
-// caso 2 async await (con retorno)
-// otra formorma de escribir
-
-
 const fetchUsersConnRetorno = async () => {  // Retorna una promesa (Promise)
   const response = await fetch(url)
 
   return await response.json()
 }
 
-fetchUsersConnRetorno() // Retorna una promesa
-  .then(users => console.log(users))
+// fetchUsersConnRetorno() // Retorna una promesa
+//   .then(users => console.log(users))
 
-
-
-  // caso 3 
 
 const fetchUsersConManejoDeErrores = async () => {
   try {
@@ -104,4 +88,3 @@ fetchUsersConManejoDeErrores()
 // Mostrar un mensaje de cargando
 // Mostrar solo usuarios de una ciudad, la ciudad es a su elección
 // Mostrar cuántos usuarios hay
-

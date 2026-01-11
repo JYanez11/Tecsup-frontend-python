@@ -1,11 +1,5 @@
 const url = "https://jsonplaceholder.typicode.com/users"
 
-
-// caso 1 : fetchUsersSinRetorno (Básico)
-// Imprime los datos directamente en la consola. Al ser async, 
-// siempre devuelve una promesa, por eso al hacerle un console.log() 
-// fuera de la función, verás Promise {<pending>}.
-
 // fetch(url)
 //   .then(respuesta => respuesta.json())
 //   .then(data => {
@@ -16,14 +10,7 @@ const url = "https://jsonplaceholder.typicode.com/users"
 //     console.log(error)
 //   })
 
-
-// caso 2 fetchUsersSinRetorno (Sin retorno)
-// Aquí se usa return await response.json(). Esto permite que
-//  quien llame a la función reciba los datos (después de que 
-// la promesa se resuelva).
-
-
-  const fetchUsersSinRetorno = async () => {
+const fetchUsersSinRetorno = async () => {
   const response = await fetch(url)
 
   const data = await response.json()
@@ -35,18 +22,14 @@ const url = "https://jsonplaceholder.typicode.com/users"
 
 // console.log(fetchUsersSinRetorno()) // Promise {<pending>}
 
-
-// caso 2.1 fetchUsersConManejoDeErrores (La más completa)
-
-
 const fetchUsersConnRetorno = async () => {  // Retorna una promesa (Promise)
   const response = await fetch(url)
 
   return await response.json()
 }
 
-fetchUsersConnRetorno() // Retorna una promesa
-  .then(users => console.log(users))
+// fetchUsersConnRetorno() // Retorna una promesa
+//   .then(users => console.log(users))
 
 
 const fetchUsersConManejoDeErrores = async () => {
@@ -105,4 +88,3 @@ fetchUsersConManejoDeErrores()
 // Mostrar un mensaje de cargando
 // Mostrar solo usuarios de una ciudad, la ciudad es a su elección
 // Mostrar cuántos usuarios hay
-
