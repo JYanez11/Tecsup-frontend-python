@@ -1,41 +1,14 @@
 const url = "https://jsonplaceholder.typicode.com/users"
 
-// fetch(url)
-//   .then(respuesta => respuesta.json())
-//   .then(data => {
-//     console.log(data)
-//     renderTodos(data)
-//   })
-//   .catch(error => {
-//     console.log(error)
-//   })
-
-const fetchUsersSinRetorno = async () => {
-  const response = await fetch(url)
-
-  const data = await response.json()
-
-  console.log(data)
-}
-
-// fetchUsersSinRetorno()
-
-// console.log(fetchUsersSinRetorno()) // Promise {<pending>}
-
-const fetchUsersConnRetorno = async () => {  // Retorna una promesa (Promise)
-  const response = await fetch(url)
-
-  return await response.json()
-}
-
-// fetchUsersConnRetorno() // Retorna una promesa
-//   .then(users => console.log(users))
 
 
+// caso : manejo de errores, con return
+
+
+// paso 1 : fetch
 const fetchUsersConManejoDeErrores = async () => {
   try {
-    document.querySelector('#estado').textContent = 'Cargando...'
-
+   
     const response = await fetch(url)
 
     console.log(response.status)
@@ -48,14 +21,13 @@ const fetchUsersConManejoDeErrores = async () => {
 
     const data = await response.json() // STATUS CODE -> 200 OK
 
-    document.querySelector('#estado').textContent = ''
-
     return data
   } catch(error) {
     console.log(error)
   }
 }
 
+// paso 2 : renderizo
 const renderUsers = async (users = []) => {
   const divApp = document.querySelector('#app')
 
@@ -73,16 +45,9 @@ const renderUsers = async (users = []) => {
   divApp.innerHTML = userList
 }
 
+// paso 3: ejecuto
 fetchUsersConManejoDeErrores()
-  .then(users => {
-    const filteredUsers = users.filter(
-      user => user.address.city === "Gwenborough"
-    )
-
-    document.querySelector('#total').textContent = `Hay ${users.length} usuarios.`
-
-    renderUsers(filteredUsers)
-  })
+  .then(users => renderUsers(users))
 
 // TODO: Resolver estos ejercicios
 // Mostrar un mensaje de cargando
