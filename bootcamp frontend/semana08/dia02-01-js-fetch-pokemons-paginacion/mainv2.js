@@ -1,0 +1,56 @@
+const fetchPokemons = async () => {
+  const API_URL = "https://pokeapi.co/api/v2/pokemon";
+
+  const response = await fetch(API_URL); // Devuelve una promesa
+
+  const data = await response.json(); // Convierte la respuesta en formato JS Object
+
+  // nuevo : vamos a modificar el arreglo url para insertar el id
+
+  const dataResults = data.results.map((pokemon) => {
+    const id = pokemon.url.split("/").at(6);
+    const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`;
+
+    return {
+      ...pokemon, // name, url
+      id,
+      image,
+    };
+  });
+
+  return {
+    ...data, // count, next, previous, results
+    results: dataResults,
+  };
+};
+
+const renderPokemons = (pokemons = []) => {
+  const pokemonsList = document.querySelector("#pokemonList");
+
+  let elements = "";
+
+  pokemons.forEach((pokemon) => {
+    elements += `
+      <article class="pokemon-item">
+        <h2>${pokemon.name}</h2>
+
+
+        <img 
+          src="${pokemon.image}"
+          width="80"
+          height="80"
+          onerror="this.src='https://placehold.co/80x80'"
+        />
+        
+       </article>
+        
+    `;
+  });
+
+  pokemonsList.innerHTML = elements;
+};
+
+fetchPokemons().then((data) => {
+  console.log(data.results);
+  renderPokemons(data.results);
+});
