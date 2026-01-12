@@ -1,49 +1,68 @@
-const fetchPokemons = async () => {
-  // const API_URL = "https://pokeapi.co/api/v2/pokemon";
-  const API_URL = `https://pokeapi.co/api/v2/pokemon?limit=6&offset=0`
+const LIMIT = 6
 
-  const response = await fetch(API_URL); // Devuelve una promesa
+let page = 1
+let totalPages = 0
+let count = 0
 
-  const data = await response.json(); // Convierte la respuesta en formato JS Object
+// TODO: Listar los pokemons en la consola usando la pokeapi
+// https://pokeapi.co/api/v2/pokemon
 
-  // nuevo : vamos a modificar el arreglo url para insertar el id
+// fetch -> Devuelve una promesa
 
-  const dataResults = data.results.map((pokemon) => {
-    const id = pokemon.url.split("/").at(6);
-    const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`;
+// paso 1 : fetch trae la info del api, por pagina
+
+const fetchPokemons = async (page = 1) => {
+  const OFFSET = (page - 1) * LIMIT
+
+  // const API_URL = 'https://pokeapi.co/api/v2/pokemon'
+  const API_URL = `https://pokeapi.co/api/v2/pokemon?limit=${LIMIT}&offset=${OFFSET}`
+
+  const response = await fetch(API_URL) // Devuelve una promesa
+
+  const data = await response.json() // Convierte la respuesta en formato JS Object
+
+  // TODO: Agregar el id a cada pokemon dentro del arreglo results para usarlo en la imagen del pokemon
+  // agrega info a la pagina del api
+
+  const dataResults = data.results.map(pokemon => {
+    const id = pokemon.url.split('/').at(6)
+    const image =
+     `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`
 
     return {
       ...pokemon, // name, url
       id,
-      image,
-    };
-  });
+      image
+    }
+  })
 
   return {
     ...data, // count, next, previous, results
-    results: dataResults,
-  };
-};
+    results: dataResults
+  }
+}
 
+
+
+// paso 2 : render , inserta grupo de pokemons en la pagina
 const renderPokemons = (pokemons = []) => {
-  const pokemonsList = document.querySelector("#pokemonList");
+  const pokemonsList = document.querySelector('#pokemonList')
 
-  let elements = "";
+  let elements = ''
 
-  pokemons.forEach((pokemon) => {
+  // TODO: Necesitamos agregar una imagen a cada pokemon
+
+  pokemons.forEach(pokemon => {
     elements += `
       <article class="pokemon-item">
         <h2>${pokemon.name}</h2>
-
-
         <img 
           src="${pokemon.image}"
           width="80"
           height="80"
           onerror="this.src='https://placehold.co/80x80'"
         />
-        
-          <div class="pokemon-item__buttons">
+        <div class="pokemon-item__buttons">
           <button>
             <img src="images/icon-star.svg" width="16" />
           </button>
@@ -51,18 +70,80 @@ const renderPokemons = (pokemons = []) => {
             <img src="images/icon-edit.svg" width="16" />
           </button>
         </div>
-
-        
       </article>
-       </article>
-        
-    `;
-  });
+    `
+  })
 
-  pokemonsList.innerHTML = elements;
-};
+  pokemonsList.innerHTML = elements
 
-fetchPokemons().then((data) => {
-  console.log(data.results);
-  renderPokemons(data.results);
-});
+  totalPages = Math.ceil(count / LIMIT)
+
+  document.querySelector('#currentPage').textContent = `${page} de ${totalPages}`
+}
+
+
+// paso 3 : ejecucion inicial
+fetchPokemons()
+  .then(data => {
+    console.log(data.results)
+
+    count = data.count
+
+    renderPokemons(data.results)
+  })
+
+// paso 4 : ejecucion con botones de  movimientos de paginas
+
+const nextPageButton = document.querySelector('#nextPage')
+const prevPageButton = document.querySelector('#prevPage')
+const firstPageButton = document.querySelector('#firstPage')
+const lastPageButton = document.querySelector('#lastPage')
+
+nextPageButton.addEventListener('click', async (event) => {
+  console.log('click next')
+
+  page = page + 1
+
+  if (page > totalPages) {
+    page = totalPages
+
+    return
+  }
+
+  const dataPokemons = await fetchPokemons(page)
+
+  renderPokemons(dataPokemons.results)
+})
+
+prevPageButton.addEventListener('click', async (event) => {
+  console.log('click prev')
+
+  page = page - 1
+
+  if (page <= 0) {
+    page = 1
+
+    return
+  }
+
+  const dataPokemons = await fetchPokemons(page)
+
+  renderPokemons(dataPokemons.results)
+})
+
+firstPageButton.addEventListener('click', async (event) => {
+  page = 1
+
+  const dataPokemons = await fetchPokemons(page)
+
+  renderPokemons(dataPokemons.results)
+})
+
+lastPageButton.addEventListener('click', async (event) => {
+  page = totalPages
+
+  const dataPokemons = await fetchPokemons(page)
+
+  renderPokemons(dataPokemons.results)
+})
+
