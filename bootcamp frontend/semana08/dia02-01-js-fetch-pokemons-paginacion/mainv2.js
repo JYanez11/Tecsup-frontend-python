@@ -42,6 +42,15 @@ const renderPokemons = (pokemons = []) => {
           onerror="this.src='https://placehold.co/80x80'"
         />
         
+          <div class="pokemon-item__buttons">
+          <button>
+            <img src="images/icon-star.svg" width="16" />
+          </button>
+          <button>
+            <img src="images/icon-edit.svg" width="16" />
+          </button>
+        </div>
+      </article>
        </article>
         
     `;
