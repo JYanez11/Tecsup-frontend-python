@@ -1,5 +1,6 @@
 const fetchPokemons = async () => {
-  const API_URL = "https://pokeapi.co/api/v2/pokemon";
+  // const API_URL = "https://pokeapi.co/api/v2/pokemon";
+  const API_URL = `https://pokeapi.co/api/v2/pokemon?limit=6&offset=0`
 
   const response = await fetch(API_URL); // Devuelve una promesa
 
