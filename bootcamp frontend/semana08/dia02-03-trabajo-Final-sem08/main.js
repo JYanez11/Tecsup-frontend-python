@@ -1,15 +1,16 @@
 
-const LIMIT = 10
+// const LIMIT = 10
 let page = 1
-let totalPages = 6
+// let totalPages = 6
 // let count = 0
 
 // paso 1 : fetch trae la info del api
 const fetchDragon = async (page = 1) => {
-  const OFFSET = (page - 1) * LIMIT
+  // const OFFSET = (page - 1) * LIMIT
 
   // const API_URL = `https://dragonball-api.com/api/characters`;
-  const API_URL = `https://dragonball-api.com/api/characters?limit=${LIMIT}&offset=${OFFSET}`
+  // const API_URL = `https://dragonball-api.com/api/characters?limit=${LIMIT}&offset=${OFFSET}`
+  const API_URL = `https://dragonball-api.com/api/characters?page=${page}`
   const response = await fetch(API_URL);
   const data = await response.json();
 
@@ -53,6 +54,7 @@ fetchDragon()
 
 const nextPageButton = document.querySelector('#nextPage')
 const prevPageButton = document.querySelector('#prevPage')
+
 const firstPageButton = document.querySelector('#firstPage')
 const lastPageButton = document.querySelector('#lastPage')
 
@@ -71,6 +73,14 @@ nextPageButton.addEventListener('click', async (event) => {
 
   console.log(dataDragons)
 
+  updatePageNumber()
+
   renderDragon(dataDragons)
 })
 
+const updatePageNumber = () => {
+  const currentPageButton = document.querySelector('#currentPage');
+  if (currentPageButton) {
+    currentPageButton.innerHTML = page;
+  }
+};
