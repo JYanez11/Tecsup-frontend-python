@@ -108,6 +108,38 @@ prevPageButton.addEventListener('click', async (event) => {
   renderDragon(dataDragons)
 })
 
+firstPageButton.addEventListener('click', async (event) => {
+  console.log('click next')
+
+  page = 1
+
+  
+  const dataDragons = await fetchDragon(page)
+
+  console.log(dataDragons)
+
+  updatePageNumber()
+
+  renderDragon(dataDragons)
+})
+
+
+lastPageButton.addEventListener('click', async (event) => {
+  console.log('click next')
+
+  page = 6
+
+  
+  const dataDragons = await fetchDragon(page)
+
+  console.log(dataDragons)
+
+  updatePageNumber()
+
+  renderDragon(dataDragons)
+})
+
+
 
 
 
