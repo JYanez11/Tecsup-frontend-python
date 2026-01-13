@@ -1,6 +1,14 @@
+
+const LIMIT = 2
+let page = 1
+let totalPages = 0
+
 // paso 1 : fetch trae la info del api
-const fetchDragon = async () => {
-  const API_URL = `https://dragonball-api.com/api/characters`;
+const fetchDragon = async (page = 1) => {
+  const OFFSET = (page - 1) * LIMIT
+
+  // const API_URL = `https://dragonball-api.com/api/characters`;
+  const API_URL = `https://dragonball-api.com/api/characters?limit=${LIMIT}&offset=${OFFSET}`
   const response = await fetch(API_URL);
   const data = await response.json();
 
