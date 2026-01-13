@@ -52,6 +52,15 @@ fetchDragon()
 
   // paso 4 : ejecucion con botones de  movimientos de paginas
 
+
+  
+const updatePageNumber = () => {
+  const currentPageButton = document.querySelector('#currentPage');
+  if (currentPageButton) {
+    currentPageButton.innerHTML = page;
+  }
+};
+
 const nextPageButton = document.querySelector('#nextPage')
 const prevPageButton = document.querySelector('#prevPage')
 
@@ -78,9 +87,28 @@ nextPageButton.addEventListener('click', async (event) => {
   renderDragon(dataDragons)
 })
 
-const updatePageNumber = () => {
-  const currentPageButton = document.querySelector('#currentPage');
-  if (currentPageButton) {
-    currentPageButton.innerHTML = page;
+
+prevPageButton.addEventListener('click', async (event) => {
+  console.log('click next')
+
+  page = page - 1
+
+  if (page <= 0) {
+    page = 1
+
+    return
   }
-};
+
+  const dataDragons = await fetchDragon(page)
+
+  console.log(dataDragons)
+
+  updatePageNumber()
+
+  renderDragon(dataDragons)
+})
+
+
+
+
+
