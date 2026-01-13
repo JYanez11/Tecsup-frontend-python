@@ -4,14 +4,12 @@ let page = 1
 let totalPages = 0
 let count = 0
 
-let pokemonFavorites = JSON.parse(localStorage.getItem('pokemon-favorites')) ?? []
-
-console.log(pokemonFavorites)
-
 // TODO: Listar los pokemons en la consola usando la pokeapi
 // https://pokeapi.co/api/v2/pokemon
 
 // fetch -> Devuelve una promesa
+
+// paso 1 : fetch trae la info del api, por pagina
 
 const fetchPokemons = async (page = 1) => {
   const OFFSET = (page - 1) * LIMIT
@@ -24,18 +22,18 @@ const fetchPokemons = async (page = 1) => {
   const data = await response.json() // Convierte la respuesta en formato JS Object
 
   // TODO: Agregar el id a cada pokemon dentro del arreglo results para usarlo en la imagen del pokemon
+  // agrega info a la pagina del api
 
   const dataResults = data.results.map(pokemon => {
     const id = pokemon.url.split('/').at(6)
-    const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`
-    const foundFavorite = pokemonFavorites.find(favorite => favorite.id === id)
+    const image =
+     `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`
 
     return {
       ...pokemon, // name, url
       id,
-      image,
-      isFavorite: Boolean(foundFavorite) // CAST - > CONVERTIMOS UN TIPO DE DATO A OTRO: OBJETO A BOOLEAN
-    } 
+      image
+    }
   })
 
   return {
@@ -44,47 +42,9 @@ const fetchPokemons = async (page = 1) => {
   }
 }
 
-const toggleFavorite = async (id, name) => {
-  console.log('toggleFavorite', id)
-  const foundPokemonFavorite = pokemonFavorites.filter(
-    favorite => favorite.id === id
-  )
-  const existPokemonFavorite = foundPokemonFavorite.length > 0
-
-  if (existPokemonFavorite) {
-    // Retirar el pokemon de favoritos
-    pokemonFavorites = pokemonFavorites.filter(pokemon => pokemon.id != id)
-  } else {
-    // Agregar el pokemon a favoritos
-    pokemonFavorites.push({ id, name })
-  }
-
-  localStorage.setItem('pokemon-favorites', JSON.stringify(pokemonFavorites))
-
-  const data = await fetchPokemons(page)
-  renderPokemons(data.results)
-
-  console.log(pokemonFavorites)
-}
-
-// TODO: Leer la propiedad image del pokemon y mostrarla en el formulario
 
 
-const readPokemon = (pokemonId) => {
-  console.log('readPokemon', pokemonId)
-
-  const currentFavorites = JSON.parse(localStorage.getItem('pokemon-favorites')) ?? []
-
-  const foundPokemon = currentFavorites.find(favorite => favorite.id === pokemonId)
-
-  console.log(foundPokemon)
-
-  const pokemonForm = document.forms['pokemonForm'] // Accedemos al formulario mediante el objeto forms
-
-  pokemonForm.name.value = foundPokemon.name
-}
-
-
+// paso 2 : render , inserta grupo de pokemons en la pagina
 const renderPokemons = (pokemons = []) => {
   const pokemonsList = document.querySelector('#pokemonList')
 
@@ -103,10 +63,10 @@ const renderPokemons = (pokemons = []) => {
           onerror="this.src='https://placehold.co/80x80'"
         />
         <div class="pokemon-item__buttons">
-          <button onclick="toggleFavorite('${pokemon.id}', '${pokemon.name}')">
-            <svg class="${pokemon.isFavorite ? 'is-favorite' : '' }" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /></svg>
+          <button>
+            <img src="images/icon-star.svg" width="16" />
           </button>
-          <button onclick="readPokemon('${pokemon.id}')">
+          <button>
             <img src="images/icon-edit.svg" width="16" />
           </button>
         </div>
@@ -119,11 +79,20 @@ const renderPokemons = (pokemons = []) => {
   totalPages = Math.ceil(count / LIMIT)
 
   document.querySelector('#currentPage').textContent = `${page} de ${totalPages}`
-
-  // TODO: Actualizar la cantidad de pokemons favoritos en la pantalla. Ej: Favoritos: 8
-
-  document.querySelector('#numberPokemons').textContent = `Favorites: ${pokemonFavorites.length}`
 }
+
+
+// paso 3 : ejecucion inicial
+fetchPokemons()
+  .then(data => {
+    console.log(data.results)
+
+    count = data.count
+
+    renderPokemons(data.results)
+  })
+
+// paso 4 : ejecucion con botones de  movimientos de paginas
 
 const nextPageButton = document.querySelector('#nextPage')
 const prevPageButton = document.querySelector('#prevPage')
@@ -178,13 +147,3 @@ lastPageButton.addEventListener('click', async (event) => {
   renderPokemons(dataPokemons.results)
 })
 
-// TODO: Implementar los botones: anterior, primero y último. Y adicionalmente actualicen la pagina actual.
-
-fetchPokemons()
-  .then(data => {
-    console.log(data.results)
-
-    count = data.count
-
-    renderPokemons(data.results)
-  })
