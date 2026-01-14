@@ -8,8 +8,7 @@ let pokemonFavorites = JSON.parse(localStorage.getItem('pokemon-favorites')) ?? 
 
 console.log(pokemonFavorites)
 
-
-// paso 1 - lee datos y modifica con data del url
+// TODO: Listar los pokemons en la consola usando la pokeapi
 // https://pokeapi.co/api/v2/pokemon
 
 // fetch -> Devuelve una promesa
@@ -41,13 +40,11 @@ const fetchPokemons = async (page = 1) => {
   })
 
   return {
-    ...data, 
-    results: dataResults // data (name, url) + id + name, image, isfavorite
+    ...data, // count, next, previous, results
+    results: dataResults
   }
 }
 
-
-// paso : modifica favoritos (nombre, imagen)
 const toggleFavorite = async (id, name, image) => {
   console.log('toggleFavorite', id)
   const foundPokemonFavorite = pokemonFavorites.filter(
@@ -71,7 +68,7 @@ const toggleFavorite = async (id, name, image) => {
   console.log(pokemonFavorites)
 }
 
-// Leer la propiedad image del pokemon y mostrarla en el formulario
+// TODO: Leer la propiedad image del pokemon y mostrarla en el formulario
 
 const readPokemon = (pokemonId) => {
   console.log('readPokemon', pokemonId)
@@ -90,9 +87,6 @@ const readPokemon = (pokemonId) => {
 
   document.querySelector('#pokemonTitle').textContent = `#${foundPokemon.id}`
 }
-
-
-// Paso : render
 
 const renderPokemons = (pokemons = []) => {
   const pokemonsList = document.querySelector('#pokemonList')
@@ -134,9 +128,6 @@ const renderPokemons = (pokemons = []) => {
   document.querySelector('#numberPokemons').textContent = `Favorites: ${pokemonFavorites.length}`
 }
 
-
-// Paso : listener de formulario
-
 const pokemonForm = document.querySelector('#pokemonForm')
 
 pokemonForm.addEventListener('submit', async (event) => {
@@ -166,9 +157,6 @@ pokemonForm.addEventListener('submit', async (event) => {
 
   renderPokemons(data.results)
 }) 
-
-
-// Paso : Listener de botones de paginacion
 
 const nextPageButton = document.querySelector('#nextPage')
 const prevPageButton = document.querySelector('#prevPage')
@@ -223,8 +211,6 @@ lastPageButton.addEventListener('click', async (event) => {
   renderPokemons(dataPokemons.results)
 })
 
-
-// Paso : usa data de api
 // TODO: Implementar los botones: anterior, primero y último. Y adicionalmente actualicen la pagina actual.
 
 fetchPokemons()
