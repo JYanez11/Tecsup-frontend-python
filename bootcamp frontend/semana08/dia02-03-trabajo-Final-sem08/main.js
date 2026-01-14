@@ -1,148 +1,95 @@
+let page = 1;
+let totalPages = 1;
+let dragonFavorites = JSON.parse(localStorage.getItem('dragon-favorites')) || [];
 
-// const LIMIT = 10
-let page = 1
-// let totalPages = 6
-// let count = 0
-
-// paso 1 : fetch trae la info del api
+// 1. Fetch: Trae la info de la API
 const fetchDragon = async (page = 1) => {
-  // const OFFSET = (page - 1) * LIMIT
+    try {
+        const API_URL = `https://dragonball-api.com/api/characters?page=${page}`;
+        const response = await fetch(API_URL);
+        const data = await response.json();
 
-  // const API_URL = `https://dragonball-api.com/api/characters`;
-  // const API_URL = `https://dragonball-api.com/api/characters?limit=${LIMIT}&offset=${OFFSET}`
-  const API_URL = `https://dragonball-api.com/api/characters?page=${page}`
-  const response = await fetch(API_URL);
-  const data = await response.json();
+        // Guardamos el total de páginas desde la meta información de la API
+        totalPages = data.meta.totalPages;
 
-  // IMPORTANTE coco: Guardamos el total de páginas que nos dice la API
-   totalPages = data.meta.totalPages;
+        // Mapeamos los items para inyectarles si son favoritos o no comparando con nuestro array local
+        const characters = data.items.map(character => ({
+            ...character,
+            isFavorite: dragonFavorites.some(fav => fav.id === character.id)
+        }));
 
-  // La API devuelve los personajes en data.items
-  return data.items; 
+        return characters;
+    } catch (error) {
+        console.error("Error al cargar:", error);
+        return [];
+    }
 };
 
-// paso 2 : render , inserta grupo de personajes
+// 2. Render: Inserta los personajes en el HTML
 const renderDragon = (dragons = []) => {
-  const dragonslist = document.querySelector('#pokemonList');
-  let elements = '';
+    const dragonsList = document.querySelector('#pokemonList'); // Asegúrate que este ID existe en tu HTML
+    let elements = '';
 
-  // Usamos el nombre correcto de la variable: dragons
-  dragons.forEach(dragon => {
-    elements += `
+    dragons.forEach(dragon => {
+        elements += `
       <article class="pokemon-item">
         <h2>${dragon.name}</h2>
         <img src="${dragon.image}" alt="${dragon.name}" width="100">
-      </article>
-    `;
-  }); // <-- Faltaba cerrar el forEach
+        <div class="pokemon-item__buttons">
+          <button onclick="toggleFavorite(${dragon.id}, '${dragon.name}', '${dragon.image}')">
+            <svg class="${dragon.isFavorite ? 'is-favorite' : ''}" width="24" height="24" viewBox="0 0 24 24" fill="${dragon.isFavorite ? 'gold' : 'none'}" stroke="currentColor" stroke-width="2">
+              <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" />
+            </svg>
+          </button>
+        </div>
+      </article>`;
+    });
 
-  dragonslist.innerHTML = elements; 
-  
-}; // <-- Faltaba cerrar la función
+    dragonsList.innerHTML = elements;
+    updatePageNumber();
+};
 
-// paso 3 : ejecucion inicial
-fetchDragon()
-  .then(data => {
-    console.log(data); // Ahora verás el array de personajes
-    // count = data.count
+// 3. Lógica de Favoritos
+window.toggleFavorite = async (id, name, image) => {
+    const index = dragonFavorites.findIndex(fav => fav.id === id);
+
+    if (index > -1) {
+        // Si ya existe, lo quitamos
+        dragonFavorites.splice(index, 1);
+    } else {
+        // Si no existe, lo agregamos
+        dragonFavorites.push({ id, name, image });
+    }
+
+    // Guardar en LocalStorage
+    localStorage.setItem('dragon-favorites', JSON.stringify(dragonFavorites));
+
+    // Refrescar la vista actual para mostrar el cambio de color en la estrella
+    const data = await fetchDragon(page);
     renderDragon(data);
-  })
-  .catch(error => console.error("Error al cargar:", error));
+};
 
-
-  // paso 4 : ejecucion con botones de  movimientos de paginas
-
-
-  
+// 4. Navegación
 const updatePageNumber = () => {
-  const currentPageButton = document.querySelector('#currentPage');
-  
-  if (currentPageButton) {
-    // Usamos `page` (tu variable actual) y `totalPages`
-    currentPageButton.innerHTML = `Página ${page} de ${totalPages}`;
-  }
-}
+    const currentPageButton = document.querySelector('#currentPage');
+    if (currentPageButton) {
+        currentPageButton.innerHTML = `Página ${page} de ${totalPages}`;
+    }
+};
 
-const nextPageButton = document.querySelector('#nextPage')
-const prevPageButton = document.querySelector('#prevPage')
+// Función genérica para cambiar de página y evitar repetir código
+const goToPage = async (newPage) => {
+    if (newPage < 1 || newPage > totalPages) return;
+    page = newPage;
+    const data = await fetchDragon(page);
+    renderDragon(data);
+};
 
-const firstPageButton = document.querySelector('#firstPage')
-const lastPageButton = document.querySelector('#lastPage')
+// Event Listeners
+document.querySelector('#nextPage').addEventListener('click', () => goToPage(page + 1));
+document.querySelector('#prevPage').addEventListener('click', () => goToPage(page - 1));
+document.querySelector('#firstPage').addEventListener('click', () => goToPage(1));
+document.querySelector('#lastPage').addEventListener('click', () => goToPage(totalPages));
 
-nextPageButton.addEventListener('click', async (event) => {
-  console.log('click next')
-
-  page = page + 1
-
-  if (page > totalPages) {
-    page = totalPages
-
-    return
-  }
-
-  const dataDragons = await fetchDragon(page)
-
-  console.log(dataDragons)
-
-  updatePageNumber()
-
-  renderDragon(dataDragons)
-})
-
-
-prevPageButton.addEventListener('click', async (event) => {
-  console.log('click next')
-
-  page = page - 1
-
-  if (page <= 0) {
-    page = 1
-
-    return
-  }
-
-  const dataDragons = await fetchDragon(page)
-
-  console.log(dataDragons)
-
-  updatePageNumber()
-
-  renderDragon(dataDragons)
-})
-
-firstPageButton.addEventListener('click', async (event) => {
-  console.log('click next')
-
-  page = 1
-
-  
-  const dataDragons = await fetchDragon(page)
-
-  console.log(dataDragons)
-
-  updatePageNumber()
-
-  renderDragon(dataDragons)
-})
-
-
-lastPageButton.addEventListener('click', async (event) => {
-  console.log('click next')
-
-  page = 6
-
-  
-  const dataDragons = await fetchDragon(page)
-
-  console.log(dataDragons)
-
-  updatePageNumber()
-
-  renderDragon(dataDragons)
-})
-
-
-
-
-
-
+// Ejecución inicial
+fetchDragon(page).then(data => renderDragon(data));
