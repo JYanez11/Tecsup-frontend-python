@@ -127,10 +127,12 @@ const renderPokemons = (pokemons = []) => {
 
   totalPages = Math.ceil(count / LIMIT)
 
+  // conteo de paginas
+
   document.querySelector('#currentPage').textContent = `${page} de ${totalPages}`
 
   // TODO: Actualizar la cantidad de pokemons favoritos en la pantalla. Ej: Favoritos: 8
-
+// numero de favoritos
   document.querySelector('#numberPokemons').textContent = `Favorites: ${pokemonFavorites.length}`
 }
 

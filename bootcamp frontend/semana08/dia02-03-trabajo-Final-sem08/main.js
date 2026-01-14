@@ -47,6 +47,8 @@ const renderDragon = (dragons = []) => {
 
     dragonsList.innerHTML = elements;
     updatePageNumber();
+
+    document.querySelector('#numberPokemons').textContent = `Favorites: ${dragonFavorites.length}`
 };
 
 // 3. Lógica de Favoritos
