@@ -23,8 +23,7 @@ const fetchPokemons = async (page = 1) => {
 
   const data = await response.json() // Convierte la respuesta en formato JS Object
 
-  // TODO: Agregar el id a cada pokemon dentro del arreglo results para usarlo en la imagen del pokemon
-
+  // genero datos para añadir al  arreglo original que extraigo del api
   const dataResults = data.results.map(pokemon => {
     const id = pokemon.url.split('/').at(6)
     const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`
@@ -39,11 +38,14 @@ const fetchPokemons = async (page = 1) => {
     } 
   })
 
+  // creo un nuevo agreglo con el adicional
+
   return {
     ...data, // count, next, previous, results
     results: dataResults
   }
 }
+
 
 const toggleFavorite = async (id, name, image) => {
   console.log('toggleFavorite', id)
@@ -51,6 +53,7 @@ const toggleFavorite = async (id, name, image) => {
     favorite => favorite.id === id
   )
   const existPokemonFavorite = foundPokemonFavorite.length > 0
+// resultado es un boleano, True o False
 
   if (existPokemonFavorite) {
     // Retirar el pokemon de favoritos
@@ -64,6 +67,7 @@ const toggleFavorite = async (id, name, image) => {
 
   const data = await fetchPokemons(page)
   renderPokemons(data.results)
+  // en este caso la data es solo dé la pagina
 
   console.log(pokemonFavorites)
 }
