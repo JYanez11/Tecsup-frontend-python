@@ -144,6 +144,7 @@ const renderPokemons = (pokemons = []) => {
 
 
 // Paso : listener : boton guardar
+// ojo el boton limpiar lo gestiona desde el html
 
 const pokemonForm = document.querySelector('#pokemonForm')
 
