@@ -8,7 +8,7 @@ let pokemonFavorites = JSON.parse(localStorage.getItem('pokemon-favorites')) ?? 
 
 console.log(pokemonFavorites)
 
-// TODO: Listar los pokemons en la consola usando la pokeapi
+
 // https://pokeapi.co/api/v2/pokemon
 
 // fetch -> Devuelve una promesa
@@ -27,14 +27,17 @@ const fetchPokemons = async (page = 1) => {
   const dataResults = data.results.map(pokemon => {
     const id = pokemon.url.split('/').at(6)
     const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`
+    
     const foundFavorite = pokemonFavorites.find(favorite => favorite.id === id)
+    // si lo encuentra crea el arreglo 
 
     return {
       ...pokemon, // name, url
       id,
       name: Boolean(foundFavorite) ? foundFavorite.name : pokemon.name,
       image: Boolean(foundFavorite) ? foundFavorite.image : image,
-      isFavorite: Boolean(foundFavorite) // CAST - > CONVERTIMOS UN TIPO DE DATO A OTRO: OBJETO A BOOLEAN
+      isFavorite: Boolean(foundFavorite) 
+      // CAST - > CONVERTIMOS UN TIPO DE DATO A OTRO: OBJETO A BOOLEAN
     } 
   })
 
@@ -42,7 +45,7 @@ const fetchPokemons = async (page = 1) => {
 
   return {
     ...data, // count, next, previous, results
-    results: dataResults
+    results: dataResults // ..pokemon, id y boleanos (name, image, is favorite)
   }
 }
 
