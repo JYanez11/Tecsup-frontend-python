@@ -82,9 +82,13 @@ const readPokemon = (pokemonId) => {
 
   console.log(foundPokemon)
 
-  const pokemonForm = document.forms['pokemonForm']
-   // Accedemos al formulario mediante el objeto forms
+  const pokemonForm = document.forms['pokemonForm'] //clase o id pokemnoForm
+   // Accedemos al formulario mediante el objeto forms,
+   // En lugar de usar document.getElementById
 
+
+  //  Las siguientes tres líneas siguen la misma lógica: acceder a un input específico dentro del 
+  // formulario y cambiar su contenido.
   pokemonForm.id.value = foundPokemon.id
   pokemonForm.name.value = foundPokemon.name
   pokemonForm.image.value = foundPokemon.image
@@ -139,12 +143,12 @@ const renderPokemons = (pokemons = []) => {
 }
 
 
-// Paso : listener de formulario
+// Paso : listener : boton guardar
 
 const pokemonForm = document.querySelector('#pokemonForm')
 
 pokemonForm.addEventListener('submit', async (event) => {
-  event.preventDefault()
+  event.preventDefault() //evita que el formulario se reinicie
 
   const pokemonFormElement = document.forms['pokemonForm']
 
