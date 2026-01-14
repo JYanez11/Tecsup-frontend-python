@@ -82,12 +82,14 @@ const readPokemon = (pokemonId) => {
 
   console.log(foundPokemon)
 
-  const pokemonForm = document.forms['pokemonForm'] // Accedemos al formulario mediante el objeto forms
+  const pokemonForm = document.forms['pokemonForm']
+   // Accedemos al formulario mediante el objeto forms
 
   pokemonForm.id.value = foundPokemon.id
   pokemonForm.name.value = foundPokemon.name
   pokemonForm.image.value = foundPokemon.image
 
+  // titulo del pokemon editando
   document.querySelector('#pokemonTitle').textContent = `#${foundPokemon.id}`
 }
 
@@ -125,10 +127,10 @@ const renderPokemons = (pokemons = []) => {
 
   pokemonsList.innerHTML = elements
 
+
+ // conteo de paginas
   totalPages = Math.ceil(count / LIMIT)
-
-  // conteo de paginas
-
+ 
   document.querySelector('#currentPage').textContent = `${page} de ${totalPages}`
 
   // TODO: Actualizar la cantidad de pokemons favoritos en la pantalla. Ej: Favoritos: 8
