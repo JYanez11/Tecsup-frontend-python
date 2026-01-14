@@ -56,10 +56,12 @@ fetchDragon()
   
 const updatePageNumber = () => {
   const currentPageButton = document.querySelector('#currentPage');
+  
   if (currentPageButton) {
-    currentPageButton.innerHTML = page;
+    // Usamos `page` (tu variable actual) y `totalPages`
+    currentPageButton.innerHTML = `Página ${page} de ${totalPages}`;
   }
-};
+}
 
 const nextPageButton = document.querySelector('#nextPage')
 const prevPageButton = document.querySelector('#prevPage')
