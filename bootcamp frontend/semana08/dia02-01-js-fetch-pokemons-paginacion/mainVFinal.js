@@ -24,7 +24,7 @@ const fetchPokemons = async (page = 1) => {
 
   const data = await response.json() // Convierte la respuesta en formato JS Object
 
-  // TODO: Agregar el id a cada pokemon dentro del arreglo results para usarlo en la imagen del pokemon
+  // Agregar el id a cada pokemon dentro del arreglo results para usarlo en la imagen del pokemon
 
   const dataResults = data.results.map(pokemon => {
     const id = pokemon.url.split('/').at(6)
@@ -71,7 +71,7 @@ const toggleFavorite = async (id, name, image) => {
   console.log(pokemonFavorites)
 }
 
-// Leer la propiedad image del pokemon y mostrarla en el formulario
+// Leer  del pokemon y mostrarla en el formulario
 
 const readPokemon = (pokemonId) => {
   console.log('readPokemon', pokemonId)
@@ -82,8 +82,9 @@ const readPokemon = (pokemonId) => {
 
   console.log(foundPokemon)
 
-  const pokemonForm = document.forms['pokemonForm'] //clase o id pokemnoForm
-   // Accedemos al formulario mediante el objeto forms,
+  const pokemonForm = document.forms['pokemonForm'] //clase o id es pokemnoForm
+   // funciona para formularios
+  //  Accedemos al formulario mediante el objeto forms,
    // En lugar de usar document.getElementById
 
 
@@ -152,6 +153,7 @@ pokemonForm.addEventListener('submit', async (event) => {
   event.preventDefault() //evita que el formulario se reinicie
 
   const pokemonFormElement = document.forms['pokemonForm']
+  // modulos de forms
 
   const id = pokemonFormElement.id.value
   const name = pokemonFormElement.name.value
