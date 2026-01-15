@@ -30,3 +30,6 @@ Content-Type: application/json
   "genreId": 2,
   "summary": "Resumen de prueba"
 }
+
+### coco
+GET http://localhost:3000/movies
