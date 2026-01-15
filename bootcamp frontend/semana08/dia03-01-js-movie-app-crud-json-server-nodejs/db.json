@@ -9,14 +9,6 @@
       "summary": "Resumen de prueba"
     },
     {
-      "id": 2,
-      "name": "Transformers: Rise of the Beasts",
-      "image": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/gPbM0MK8CP8A174rmUwGsADNYKD.jpg",
-      "release": "2023-06-08",
-      "genreId": 2,
-      "summary": "Resumen de prueba"
-    },
-    {
       "id": 3,
       "name": "Mission: Impossible - Dead Reckoning Part One",
       "image": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/NNxYkU70HPurnNCSiCjYAmacwm.jpg",
@@ -33,20 +25,12 @@
       "summary": "Resumen de prueba"
     },
     {
-      "id": 5,
-      "name": "The Flash",
+      "name": "The Flash Modificado",
       "image": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/rktDFPbfHfUbArZ6OOOKsXcv0Bm.jpg",
       "release": "2023-06-15",
       "genreId": 2,
-      "summary": "Resumen de prueba"
-    },
-    {
-      "id": 6,
-      "name": "Spider-Man: Across the Spider-Verse ",
-      "image": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
-      "release": "2023-06-02",
-      "genreId": 3,
-      "summary": "Resumen de prueba"
+      "summary": "Resumen de prueba",
+      "id": 5
     },
     {
       "id": 7,
@@ -71,6 +55,30 @@
       "release": "2023-04-05",
       "genreId": 3,
       "summary": "Resumen de prueba"
+    },
+    {
+      "name": "G30 La película",
+      "image": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg",
+      "release": "2026-01-14",
+      "genreId": 3,
+      "summary": "G30 la películas más esperado del año",
+      "id": 10
+    },
+    {
+      "name": "mi peli",
+      "image": "mi imagen",
+      "release": "2026-01-22",
+      "genreId": "1",
+      "summary": "sadasdasd",
+      "id": 12
+    },
+    {
+      "name": "G31 La película",
+      "image": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg",
+      "release": "2026-01-14",
+      "genreId": 3,
+      "summary": "G31 la películas más esperado del año",
+      "id": 13
     }
   ]
 }
