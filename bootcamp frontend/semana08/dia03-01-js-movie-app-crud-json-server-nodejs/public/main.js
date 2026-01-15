@@ -1,5 +1,7 @@
 import { createMovie, deleteMovie, fetchMovies } from './servicios.js'
 
+
+// Render debio ir en otro archivo.js
 const renderMovies = (movies = []) => {
   // TODO: Renderizar las peliculas usando la plantilla del tbody
 
@@ -44,7 +46,12 @@ const renderMovies = (movies = []) => {
 
   movieList.innerHTML = html
 
+
+
+
   // TODO: remover una película cuando presionamos el boton ❌
+  // interactua con navegador
+  // usa delete, fletch de otro archivo
 
   const removeButtons = document.querySelectorAll('.movies__remove')
 
@@ -72,8 +79,12 @@ const renderMovies = (movies = []) => {
     })
   })
 
-  // TODO: Llenar el formulario de pelicula con la data de la pelicula seleccionado cuando presionamos en el botón ✏ y guardar la edición.
+  
 }
+// TODO: Llenar el formulario de pelicula con la data de la pelicula seleccionado cuando presionamos en el botón ✏ y guardar la edición.
+// interactua con navegador
+// usa create, fletch de otro archivo
+
 
 const moviesForm = document.querySelector('#moviesForm')
 
@@ -131,6 +142,8 @@ moviesForm.addEventListener('submit', async (event) => {
   peliculasForm.reset()
 })
 
+
+// usa los datos 
 fetchMovies()
   .then(data => {
     renderMovies(data)

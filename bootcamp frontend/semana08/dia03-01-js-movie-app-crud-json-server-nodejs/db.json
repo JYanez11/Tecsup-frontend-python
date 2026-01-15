@@ -1,14 +1,6 @@
 {
   "movies": [
     {
-      "id": 1,
-      "name": "Barbie",
-      "image": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg",
-      "release": "2023-07-21",
-      "genreId": 1,
-      "summary": "Resumen de prueba"
-    },
-    {
       "id": 3,
       "name": "Mission: Impossible - Dead Reckoning Part One",
       "image": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/NNxYkU70HPurnNCSiCjYAmacwm.jpg",
@@ -71,6 +63,14 @@
       "genreId": "1",
       "summary": "sadasdasd",
       "id": 12
+    },
+    {
+      "name": "coco",
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/3.svg",
+      "release": "2026-01-22",
+      "genreId": "3",
+      "summary": "pruebaa",
+      "id": 14
     }
   ]
 }
