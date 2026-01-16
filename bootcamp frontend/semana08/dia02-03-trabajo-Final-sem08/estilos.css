@@ -6,13 +6,14 @@ body {
   margin: 0;
 }
 
-#numberDragons {
-  color: white;
-}
 
 .dragon-app {
   display: flex;
   gap: 1rem;
+}
+
+#numberDragons {
+  color: white;
 }
 
 .dragon-wrapper {
