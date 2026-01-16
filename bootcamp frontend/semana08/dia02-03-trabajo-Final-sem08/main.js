@@ -34,6 +34,8 @@ const renderDragon = (dragons = []) => {
         elements += `
       <article class="pokemon-item">
         <h2>${dragon.name}</h2>
+        <h2>raza : ${dragon.race}</h2>
+        <h2>genero : ${dragon.gender}</h2>
         <img src="${dragon.image}" alt="${dragon.name}" width="100">
         <div class="pokemon-item__buttons">
           <button onclick="toggleFavorite(${dragon.id}, '${dragon.name}', '${dragon.image}')">
