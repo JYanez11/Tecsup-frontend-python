@@ -1,6 +1,6 @@
 let page = 1;
 let totalPages = 1;
-let dragonFavorites = JSON.parse(localStorage.getItem('dragon-favorites')) || [];
+let dragonFavorites = JSON.parse(localStorage.getItem('dragon-favorites')) ?? [];
 
 // 1. Fetch: Trae la info de la API
 const fetchDragon = async (page = 1) => {
