@@ -34,9 +34,9 @@ const renderDragon = (dragons = []) => {
         elements += `
       <article class="dragon-item">
         <h2>${dragon.name}</h2>
-        <h2>raza : ${dragon.race}</h2>
-        <h2>genero : ${dragon.gender}</h2>
-        <img src="${dragon.image}" alt="${dragon.name}" width="100">
+        <p>raza : ${dragon.race}</p>
+        <p>genero : ${dragon.gender}</p>
+        <img src="${dragon.image}" alt="${dragon.name}" width="75">
         <div class="dragon-item__buttons">
           <button onclick="toggleFavorite(${dragon.id}, '${dragon.name}', '${dragon.image}')">
             <svg class="${dragon.isFavorite ? 'is-favorite' : '' }" width="24" height="24" viewBox="0 0 24 24" fill= "grey"" class="icon icon-tabler icons-tabler-filled icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6.979 3.074a6 6 0 0 1 4.988 1.425l.037 .033l.034 -.03a6 6 0 0 1 4.733 -1.44l.246 .036a6 6 0 0 1 3.364 10.008l-.18 .185l-.048 .041l-7.45 7.379a1 1 0 0 1 -1.313 .082l-.094 -.082l-7.493 -7.422a6 6 0 0 1 3.176 -10.215z" /></svg>
