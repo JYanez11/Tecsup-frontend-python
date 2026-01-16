@@ -50,8 +50,8 @@ body {
 }
 
 .is-favorite {
-  color: #dec62a;
-  fill: #dec62a;
+  color: red;
+  fill: red;
 }
 
 .pokemon-form {
