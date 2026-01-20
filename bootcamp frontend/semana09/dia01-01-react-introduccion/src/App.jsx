@@ -8,10 +8,12 @@ const App = () => {
   return (
     <div>
       <h4>Propiedades de un componente</h4>
-
+      
+      <p>hola coco </p>
       <BienvenidaPersonalizada nombre="Eduardo" edad={24} />
       <BienvenidaPersonalizada nombre="Victor" edad={40} />
       <BienvenidaPersonalizada nombre="Alex" />
+      <BienvenidaPersonalizada nombre="coco" />
     </div>
   )
 }
@@ -44,6 +46,7 @@ export default App
 
 // const App = () => {
 //   const suma = 8 + 9
+//   + 10
 //   const nombre = 'Victor'
 
 //   // Comentarios en React/JS dentro del cuerpo de la función
@@ -71,7 +74,7 @@ export default App
 
 // export default App
 
-// 06 - Importando componentes externos
+// // 06 - Importando componentes externos
 
 // import { ComponenteDespedida } from './components/ComponenteDespedida.jsx'
 // import ComponenteSaludo from './components/ComponenteSaludo.jsx'
@@ -88,7 +91,7 @@ export default App
 //   )
 // }
 
-// 05 - Anidando componentes dentro de otros
+// // 05 - Anidando componentes dentro de otros
 
 // function ComponenteSaludo() {
 //   return <h4>Hola alumnos!</h4>
@@ -110,19 +113,20 @@ export default App
 //   )
 // }
 
-// 04 - Extensiones de VSCODE necesarias para usar React
-// ES7+ React/Redux/React-Native snippets
-// https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets
+// // 04 - Extensiones de VSCODE necesarias para usar React
+// // ES7+ React/Redux/React-Native snippets
+// // https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets
 
-// Snippets para crear componentes (rfc, rafce)
+// // Snippets para crear componentes (rfc, rafce)
 
-// snippet: rfc
+// // snippet: rfc
 
-// export default function App() {
-//   return (
-//     <div>Hola React!</div>
-//   )
-// }
+// // export default function App() {
+// //   return (
+// //     <div>Hola React!</div>
+// //   )
+// // }
+
 
 // snippet: rafce
 
