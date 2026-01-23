@@ -52,9 +52,18 @@ const handleRemover = (id) => {
 
 
   // TODO: Actualizar el estado de la tarea a completado
+// 2. FUNCIÓN NUEVA: Alternar el estado completado
+  const toggleCompletado = (id) => {
+    const nuevasTareas = tareas.map(tarea => {
+      if (tarea.id === id) {
+        return { ...tarea, completado: !tarea.completado };
+      }
+      return tarea;
+    });
+    setTareas(nuevasTareas);
+  };
 
 
-  
    
   return (
     <main className="flex flex-col gap-4">
@@ -94,11 +103,14 @@ const handleRemover = (id) => {
           return (
             <li className="flex justify-between" key={tarea.id}>
               <div className="flex gap-2">
-                <input type="checkbox" />
-
-                <span>
-                  {tarea.titulo}
-                </span>
+             <input 
+                type="checkbox" 
+                checked={tarea.completado}
+                onChange={() => toggleCompletado(tarea.id)}
+              />
+              <span className={tarea.completado ? "line-through text-gray-400" : ""}>
+                {tarea.titulo}
+              </span>
               </div>
 
               <button
