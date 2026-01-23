@@ -41,11 +41,20 @@ const App = () => {
     setInput('')
   }
 
-  const handleRemover = (event) => {
-    // TODO: Remover la tarea seleccionada al presionar el botón de la ❌
-  }
+ 
+ // TODO: Remover la tarea seleccionada al presionar el botón de la ❌
+ 
+
+const handleRemover = (id) => {
+    const nuevasTareas = tareas.filter(tarea => tarea.id !== id);
+    setTareas(nuevasTareas);
+  };
+
 
   // TODO: Actualizar el estado de la tarea a completado
+
+
+  
    
   return (
     <main className="flex flex-col gap-4">
@@ -94,7 +103,7 @@ const App = () => {
 
               <button
                 className="cursor-pointer"
-                onClick={handleRemover}
+                onClick={() => handleRemover(tarea.id)}
               >
                 ❌
               </button>
