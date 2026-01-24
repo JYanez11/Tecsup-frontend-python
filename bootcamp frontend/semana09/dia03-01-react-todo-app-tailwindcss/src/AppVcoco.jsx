@@ -41,40 +41,29 @@ const App = () => {
     setInput('')
   }
 
-  const handleRemover = (id) => {
-    // TODO: Remover la tarea seleccionada al presionar el botón de la ❌
-    console.log('Remover tarea con id:', id)
+ 
+ // TODO: Remover la tarea seleccionada al presionar el botón de la ❌
+ 
 
-    const tareasActualizadas = tareas.filter(tarea => tarea.id !== id)
+const handleRemover = (id) => {
+    const nuevasTareas = tareas.filter(tarea => tarea.id !== id);
+    setTareas(nuevasTareas);
+  };
 
-    setTareas(tareasActualizadas)
-  }
 
   // TODO: Actualizar el estado de la tarea a completado
-  const handleCompletado = (id) => {
-    console.log('Actualizando tarea', id)
-
-    const tareasActualizadas = tareas.map(tarea => {
+// 2. FUNCIÓN NUEVA: Alternar el estado completado
+  const toggleCompletado = (id) => {
+    const nuevasTareas = tareas.map(tarea => {
       if (tarea.id === id) {
-        // Aquí vamos a modificar la propiedad completado a true o a false
-        return {
-          ...tarea,
-          completado: !tarea.completado
-        }
+        return { ...tarea, completado: !tarea.completado };
       }
+      return tarea;
+    });
+    setTareas(nuevasTareas);
+  };
 
-      return tarea
-    })
 
-    setTareas(tareasActualizadas)
-  }
-
-  const tareasCompletadas = tareas.filter(tarea => tarea.completado)
-
-  const handleLimpiarTareasCompletadas = () => {
-    // TODO: Limpiar las tareas completadas del estado tareas
-    console.log('COmpletando tareas')
-  }
    
   return (
     <main className="flex flex-col gap-4">
@@ -95,16 +84,15 @@ const App = () => {
           value="Añadir"
           className="bg-blue-400 p-2"
         />
+
+        {input}
       </form>
 
       <section className="bg-blue-200 flex justify-between p-4">
-        <span>
-          {tareasCompletadas.length} de {tareas.length} completadas
-        </span>
+        <span>0 de 0 completadas</span>
 
         <button
           className="bg-green-400 p-2"
-          onClick={handleLimpiarTareasCompletadas}
         >
           Limpiar completadas
         </button>
@@ -115,17 +103,14 @@ const App = () => {
           return (
             <li className="flex justify-between" key={tarea.id}>
               <div className="flex gap-2">
-                <input
-                  type="checkbox"
-                  onChange={() => handleCompletado(tarea.id)}
-                  checked={tarea.completado}
-                />
-
-                {/* TODO: la clase line-through solo debe añadirse al className si tarea.completado es true */}
-
-                <span className={ tarea.completado ? "line-through text-red-500" : '' }>
-                  {tarea.titulo}
-                </span>
+             <input 
+                type="checkbox" 
+                checked={tarea.completado}
+                onChange={() => toggleCompletado(tarea.id)}
+              />
+              <span className={tarea.completado ? "line-through text-gray-400" : ""}>
+                {tarea.titulo}
+              </span>
               </div>
 
               <button
