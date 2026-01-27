@@ -1,107 +1,96 @@
+// useEffect, no ayuda a controlar el ciclo de vida un componente
+// CREACIÓN, ACTUALIZACIÓN Y ELIMINACIÓN DEL COMPONENTE
+
 import { useState } from "react"
+import { useEffect } from "react"
 
 import Avatar from "boring-avatars";
 
 const App = () => {
-  const DEFAULT_STUDENTS = [
-    // {
-    //   id: "1",
-    //   name: "Bulma",
-    //   city: 'Chiclayo'
-    // },
-    // {
-    //   id: "2",
-    //   name: "Goku",
-    //   city: 'Trujillo'
-    // },
-    // {
-    //   id: "3",
-    //   name: "Vegeta",
-    //   city: 'Lima'
-    // }
-  ]
+  const [contador, setContador] = useState(0)
+  const [students, setStudents] = useState([])
 
-  // TODO: Crear un estado y listar los estudiantes del arreglo DEFAULT_STUDENTS
-  const [students, setStudents] = useState(() => {
-    return JSON.parse(localStorage.getItem('STUDENTS') ?? '[]')
-  })
+  useEffect(() => {
+    console.log('CICLO DE VIDA: CREACIÓN / ACTUALIZACIÓN')
+  }, [contador]) // Se ejecuta el useEffect al cargar el componente la primera vez
+
+  useEffect(() => {
+    console.log('LA PRIMERA VEZ')
+    fetch('https://697828f05b9c0aed1e882a5d.mockapi.io/v1/students')
+      .then(response => response.json())
+      .then((data) => setStudents(data))
+  }, []) // Este useEffect se ejecuta la primera vez
 
   const [form, setForm] = useState({
-    id: '',
-    name: '',
-    city: '',
-  })
-
-  // TODO: Implementar el boton eliminar de cada estudiante.
-  const handleRemove = (id) => {
-    const updatedStudents = students.filter(student => student.id !== id)
-
-    setStudents(updatedStudents)
-
-    localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
-  }
-
-  // TODO: Implementar el boton editar (recupera la data del estado form en el formulario)
-
-  const handleUpdate = (id) => {
-    const studentFound = students.find(student => {
-      return student.id === id
-    })
-
-    setForm(studentFound)
-  }
-
-  const handleSave = (event) => {
-    event.preventDefault() // Evitamos que la página se actualice
-
-    const isNew = form.id === ''
-
-    if (isNew) {
-      const newStudent = {
-        name: form.name,
-        city: form.city,
-        id: crypto.randomUUID()
-      }
-
-      const updatedStudents = [...students, newStudent]
-
-      setStudents(updatedStudents)
-
-      localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
-    } else {
-      // Aquí editamos un estudiante existente
-      // TODO: IMplementar el guarddo del estudiante en el estado student cuando existe
-      const updatedStudents = students.map(student => {
-        // Buscar el estudiante con el id
-        if (student.id === form.id) {
-          return {
-            ...student,
-            name: form.name,
-            city: form.city
-          }
-        }
-        return student
-      })
-
-      setStudents(updatedStudents)
-
-      localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
-    }
-
-    setForm({
       id: '',
       name: '',
-      city: ''
+      city: '',
     })
-
-    console.log('Creando un nuevo estudiante!', form)
-  }
-
-  const handleChange = (event) => {
-    const { name, value } = event.target
-
-    setForm({ ...form, [name]: value })
-  }
+  
+    // TODO: Implementar el boton eliminar de cada estudiante.
+    const handleRemove = (id) => {
+      const updatedStudents = students.filter(student => student.id !== id)
+  
+      setStudents(updatedStudents)
+    }
+  
+    // TODO: Implementar el boton editar (recupera la data del estado form en el formulario)
+  
+    const handleUpdate = (id) => {
+      const studentFound = students.find(student => {
+        return student.id === id
+      })
+  
+      setForm(studentFound)
+    }
+  
+    const handleSave = (event) => {
+      event.preventDefault() // Evitamos que la página se actualice
+  
+      const isNew = form.id === ''
+  
+      if (isNew) {
+        const newStudent = {
+          name: form.name,
+          city: form.city,
+          id: crypto.randomUUID()
+        }
+  
+        const updatedStudents = [...students, newStudent]
+  
+        setStudents(updatedStudents)
+      } else {
+        // Aquí editamos un estudiante existente
+        // TODO: IMplementar el guarddo del estudiante en el estado student cuando existe
+        const updatedStudents = students.map(student => {
+          // Buscar el estudiante con el id
+          if (student.id === form.id) {
+            return {
+              ...student,
+              name: form.name,
+              city: form.city
+            }
+          }
+          return student
+        })
+  
+        setStudents(updatedStudents)
+      }
+  
+      setForm({
+        id: '',
+        name: '',
+        city: ''
+      })
+  
+      console.log('Creando un nuevo estudiante!', form)
+    }
+  
+    const handleChange = (event) => {
+      const { name, value } = event.target
+  
+      setForm({ ...form, [name]: value })
+    }
 
   return (
     <main className="w-96 mx-auto border border-slate-400 rounded-lg mt-6 p-3">
