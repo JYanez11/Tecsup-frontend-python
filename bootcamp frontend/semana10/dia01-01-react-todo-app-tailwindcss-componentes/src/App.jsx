@@ -56,6 +56,13 @@ const App = () => {
   const handleSave = (nuevaTarea) => {
     setTareas([...tareas, nuevaTarea])
   }
+
+  const handleLimpiarCompletadas = () => {
+  // Filtramos: "Déjame solo las que NO están completadas"
+  const tareasNoCompletadas = tareas.filter(tarea => !tarea.completado)
+  
+  setTareas(tareasNoCompletadas)
+}
    
   return (
     <main className="flex flex-col gap-4">
@@ -63,7 +70,10 @@ const App = () => {
 
       <TareaFormulario onSubmit={handleSave} />
 
-      <TareaEstadisticas tareas={tareas} />
+      <TareaEstadisticas 
+        tareas={tareas}
+        onLimpiarTareasCompletadas={handleLimpiarCompletadas}   
+         />
 
       <TareaLista
         tareas={tareas}
