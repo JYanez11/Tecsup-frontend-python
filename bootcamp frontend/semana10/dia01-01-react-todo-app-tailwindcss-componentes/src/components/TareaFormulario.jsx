@@ -24,13 +24,13 @@ const TareaFormulario = ({ onSubmit }) => {
   return (
     <form
       className="flex gap-2"
-      onSubmit={handleSubmit}
+      onSubmit={handleSubmit}//a nivel form, no sumit
     >
       <input
         type="text"
         className="border p-1"
-        onChange={(event) => setInput(event.target.value)}
-        value={input}
+        onChange={(event) => setInput(event.target.value)} //captura letra por letra
+        value={input} // lo blanquea
       />
       <input
         type="submit"
