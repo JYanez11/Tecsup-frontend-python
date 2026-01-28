@@ -1,17 +1,17 @@
 ### Listar estudiantes
-GET https://697a3b27cc9c576a8e193433.mockapi.io/v1/students
+GET https://697828f05b9c0aed1e882a5d.mockapi.io/v1/students
 
 ### Crear un estudiando
-POST https://697a3b27cc9c576a8e193433.mockapi.io/v1/students
+POST https://697828f05b9c0aed1e882a5d.mockapi.io/v1/students
 Content-Type: application/json
 
 {
-  "name": "Coco3",
-  "city": "Callao"
+  "name": "Victor2",
+  "city": "Chiclayo2"
 }
 
 ### Actualizar los datos de un estudiante con su id
-PUT https://697a3b27cc9c576a8e193433.mockapi.io/v1/students/1
+PUT https://697828f05b9c0aed1e882a5d.mockapi.io/v1/students/1
 Content-Type: application/json
 
 {
@@ -20,4 +20,4 @@ Content-Type: application/json
 }
 
 ### Eliminar un estudiante con su id
-DELETE https://697a3b27cc9c576a8e193433.mockapi.io/v1/students/2
+DELETE https://697828f05b9c0aed1e882a5d.mockapi.io/v1/students/2
