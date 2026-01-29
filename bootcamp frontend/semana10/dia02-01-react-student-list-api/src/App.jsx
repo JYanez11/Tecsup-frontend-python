@@ -5,6 +5,8 @@ import { useState } from "react"
 import { useEffect } from "react"
 
 import Avatar from "boring-avatars";
+import { createStudent, fetchStudents, getStudentById, removeStudent, updateStudent } from "./services/students";
+import Swal from 'sweetalert2'
 
 const App = () => {
   const [contador, setContador] = useState(0)
@@ -16,9 +18,8 @@ const App = () => {
 
   useEffect(() => {
     console.log('LA PRIMERA VEZ')
-    fetch('https://697828f05b9c0aed1e882a5d.mockapi.io/v1/students')
-      .then(response => response.json())
-      .then((data) => setStudents(data))
+    fetchStudents() // Devuelve una promesa
+      .then(data => setStudents(data))
   }, []) // Este useEffect se ejecuta la primera vez
 
   const [form, setForm] = useState({
@@ -29,22 +30,43 @@ const App = () => {
   
     // TODO: Implementar el boton eliminar de cada estudiante.
     const handleRemove = (id) => {
-      const updatedStudents = students.filter(student => student.id !== id)
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          const response = await removeStudent(id)
+
+          const dataStudents = await fetchStudents()
+
+          setStudents(dataStudents)
+        }
+      });
+
+      // const updatedStudents = students.filter(student => student.id !== id)
   
-      setStudents(updatedStudents)
+      // setStudents(updatedStudents)
     }
   
-    // TODO: Implementar el boton editar (recupera la data del estado form en el formulario)
+    
+    const handleUpdate = async (id) => {
+      // TODO: Implementar el boton editar (recupera la data del estado form en el formulario) desde el recurso student de mockapi
+
+      const dataStudent = await getStudentById(id)
+
+      // const studentFound = students.find(student => {
+      //   return student.id === id
+      // })
   
-    const handleUpdate = (id) => {
-      const studentFound = students.find(student => {
-        return student.id === id
-      })
-  
-      setForm(studentFound)
+      setForm(dataStudent)
     }
   
-    const handleSave = (event) => {
+    const handleSave = async (event) => {
       event.preventDefault() // Evitamos que la página se actualice
   
       const isNew = form.id === ''
@@ -53,28 +75,42 @@ const App = () => {
         const newStudent = {
           name: form.name,
           city: form.city,
-          id: crypto.randomUUID()
+          // id: crypto.randomUUID()
         }
+
+        const response = await createStudent(newStudent)
+
+        console.log(response)
+
+        const dataStudents = await fetchStudents()
+
+        setStudents(dataStudents)
   
-        const updatedStudents = [...students, newStudent]
+        // const updatedStudents = [...students, newStudent]
   
-        setStudents(updatedStudents)
+        // setStudents(updatedStudents)
       } else {
         // Aquí editamos un estudiante existente
         // TODO: IMplementar el guarddo del estudiante en el estado student cuando existe
-        const updatedStudents = students.map(student => {
-          // Buscar el estudiante con el id
-          if (student.id === form.id) {
-            return {
-              ...student,
-              name: form.name,
-              city: form.city
-            }
-          }
-          return student
-        })
+        const response = await updateStudent(form)
+
+        const dataStudents = await fetchStudents()
+
+        setStudents(dataStudents)
+
+        // const updatedStudents = students.map(student => {
+        //   // Buscar el estudiante con el id
+        //   if (student.id === form.id) {
+        //     return {
+        //       ...student,
+        //       name: form.name,
+        //       city: form.city
+        //     }
+        //   }
+        //   return student
+        // })
   
-        setStudents(updatedStudents)
+        // setStudents(updatedStudents)
       }
   
       setForm({
@@ -96,7 +132,6 @@ const App = () => {
     <main className="w-96 mx-auto border border-slate-400 rounded-lg mt-6 p-3">
       <h1 className="text-2xl text-center text-slate-700 font-bold mb-4">Student CRUD</h1>
 
-      <button onClick={() => setContador(contador +1 )}>+1</button>
       <form
         className="flex flex-col gap-4 bg-slate-100 p-3 rounded-lg border"
         onSubmit={handleSave}
