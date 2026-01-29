@@ -1,5 +1,5 @@
 {
-  "name": "dia02-01-react-student-list-api",
+  "name": "dia03-01-react-crud-movie-app-supabase",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,11 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.93.2",
     "@tailwindcss/vite": "^4.1.18",
-    "boring-avatars": "^2.0.4",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "sweetalert2": "^11.26.17",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {

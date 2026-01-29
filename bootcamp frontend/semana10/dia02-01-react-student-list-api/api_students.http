@@ -1,6 +1,9 @@
 ### Listar estudiantes
 GET https://697828f05b9c0aed1e882a5d.mockapi.io/v1/students
 
+### Obtener un estudiante con su id
+GET https://697828f05b9c0aed1e882a5d.mockapi.io/v1/students/1
+
 ### Crear un estudiando
 POST https://697828f05b9c0aed1e882a5d.mockapi.io/v1/students
 Content-Type: application/json
