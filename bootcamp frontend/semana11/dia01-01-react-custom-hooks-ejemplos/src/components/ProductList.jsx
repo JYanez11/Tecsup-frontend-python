@@ -1,9 +1,16 @@
-import { useState } from "react"
+import { useProducts } from "../hooks/useProducts"
 
 const ProductList = () => {
-  const [products, setProducts] = useState([])
+  const { products, loading } = useProducts()
 
-  // TODO: Leer los productos y listarlos desde el servicio de dummyjson (https://dummyjson.com/products).
+  // Conditional rendering
+  if (loading) {
+    return (
+      <div>
+        Cargando productos...
+      </div>
+    )
+  }
 
   return (
     <div>
