@@ -4,6 +4,8 @@ import { supabase } from "../lib/supabase"
 export function useAuth() {
   const [user, setUser] = useState(null)
 
+
+  // guarda la sesion para evitar que el usuario vuelva alogear si refresca la pagina
   useEffect(() => {
     const getInitialSession = async () => {
       const { data, error } = await supabase.auth.getSession()
@@ -11,9 +13,11 @@ export function useAuth() {
       setUser(data.session)
     }
 
-    getInitialSession()
+    getInitialSession() //ejecuta funcion
   }, [])
 
+
+// escucha cambios en tiempo real
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (_event, session) => {
@@ -21,7 +25,7 @@ export function useAuth() {
       }
     )
 
-    return () => subscription.unsubscribe()
+    return () => subscription.unsubscribe() //evita que siga consumiendo memoria
   }, [])
 
   const login = async (email, password) => {
