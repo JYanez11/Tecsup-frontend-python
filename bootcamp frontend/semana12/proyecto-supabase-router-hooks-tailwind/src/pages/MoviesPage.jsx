@@ -56,14 +56,14 @@ const MoviesPage = () => {
 
   return (
     <div className="p-6 max-w-2xl mx-auto">
-      <h1 className="text-3xl mb-4 font-bold">Movie list</h1>
+      <h1 className="text-3xl mb-4 font-bold">Lista de invitados a la fiesta de año nuevo</h1>
 
       <form onSubmit={handleCreate} className="flex gap-2 mb-8">
         <input
           type="text"
           value={newMovieName}
           onChange={(e) => setNewMovieName(e.target.value)}
-          placeholder="Nueva película..."
+          placeholder="invitado..."
           className="flex-1 border p-2 rounded shadow-sm"
         />
         <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition">

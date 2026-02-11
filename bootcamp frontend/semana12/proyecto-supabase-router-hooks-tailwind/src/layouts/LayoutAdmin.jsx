@@ -17,11 +17,10 @@ const LayoutAdmin = () => {
     <>
       <header className="bg-blue-300 p-4">
         <div className="container mx-auto flex justify-between">
-          <h1 className="font-bold">React router - Admin</h1>
+          <h1 className="font-bold">Jorge Yañez - Admin</h1>
 
           <nav className="flex gap-4">
-            <Link to='/'>Home</Link>
-            <Link to='/movies'>Movies</Link>
+            
             
             <span>Bienvenido, {user?.user.email}</span>
             <button onClick={handleLogout}>Logout</button>
