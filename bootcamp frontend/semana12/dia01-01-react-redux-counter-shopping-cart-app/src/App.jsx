@@ -20,10 +20,10 @@ const App = () => {
 
   return (
     <main className="flex flex-col gap-8 p-4">
-      <section>
-        <ShoppingCart />
-
+      <section className="flex">
         <ProductList products={products} />
+
+        <ShoppingCart />
       </section>
 
       <Counter />

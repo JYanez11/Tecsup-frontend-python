@@ -15,11 +15,51 @@ export const CartSlice = createSlice({
 
       const newProduct = action.payload
 
+      // Validar cuando el producto existe en el carrito de compras
+      const productInCartIndex = state.findIndex(
+        product => product.id === newProduct.id
+      ) // Si encuentra el elemento devuelve su indice y si no devuelve -1
+
+      if (productInCartIndex >= 0) {
+        // Encontramos el productos e incrementamos en uno su propiedad quantity
+        return state.map(
+          product => {
+            if (product.id === newProduct.id) {
+              return {
+                ...product,
+                quantity: product.quantity + 1
+              }
+            }
+
+            return product
+          }
+        )
+      }
+
       // Cuando el producto es nuevo en el carrito lo agregamos al estado directamente
       return [
         ...state,
-        newProduct
+        {
+          ...newProduct,
+          quantity: 1
+        }
       ]
+    },
+    removeFromCart: (state, action) => {
+      // Va lo lógica para remover un producto del carrito
+      console.log('removeFromCart', action)
+      // TODO: remover el producto del carrito de compras con el id del producto a eliminar
+      const productId = action.payload
+
+      return state.filter(
+        product => product.id !== productId
+      )
+    },
+    clearCart: (state) => {
+      // Va la lógica para limpiar el carrito de compras
+      console.log('clearCart')
+      // TODO: Limpiar el carrito de compras
+      return []
     }
   }
 })
@@ -27,4 +67,4 @@ export const CartSlice = createSlice({
 // Exportar el estado inicial y los reducers del slice
 export default CartSlice.reducer
 
-export const { addToCart } = CartSlice.actions
+export const { addToCart, removeFromCart, clearCart } = CartSlice.actions
