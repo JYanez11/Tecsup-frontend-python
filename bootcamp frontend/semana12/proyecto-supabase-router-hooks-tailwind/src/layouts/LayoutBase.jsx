@@ -7,13 +7,12 @@ const LayoutBase = () => {
         <div className="container mx-auto flex justify-between">
           <h1 className="font-bold">ingrese su mail y clave</h1>
 
-          <nav className="flex gap-4">
-            
-            
+          <nav className="flex gap-4">                    
             <Link to='/'>Home</Link>
           </nav>
         </div>
       </header>
+
 
       <main className="container mx-auto m-6">
         <Outlet />

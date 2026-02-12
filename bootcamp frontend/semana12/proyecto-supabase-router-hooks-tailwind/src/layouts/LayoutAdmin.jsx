@@ -30,6 +30,7 @@ const LayoutAdmin = () => {
         {/* <pre>{JSON.stringify(user, null, 2)}</pre> */}
       </header>
 
+
       <main className="container mx-auto m-6">
         <Outlet />
       </main>
