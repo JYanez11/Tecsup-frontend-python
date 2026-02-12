@@ -1,12 +1,5 @@
 import { supabase } from "../lib/supabase";
 
-// export const fetchMovies = async () => {
-//   const response = await supabase.from('invitadosApp').select('*')
-
-//   return response.data
-// }
-
-
 
 // Obtener registros
 export const fetchMovies = async () => {
@@ -25,11 +18,10 @@ export const fetchMovies = async () => {
 
 // Crear registros (Insertar)
 export const createMovies = async (payload) => {
-  // Supabase usa .insert() para crear nuevos registros
-  const { data, error } = await supabase
+    const { data, error } = await supabase
     .from('invitadosApp')
-    .insert(payload) // payload puede ser un objeto {} o un array [{}]
-    .select();       // Agregamos .select() para que devuelva el objeto creado
+    .insert(payload) 
+    .select();       
 
   if (error) {
     console.error("Error creating movie:", error.message);
@@ -45,7 +37,7 @@ export const deleteMovie = async (id) => {
   const { data, error } = await supabase
     .from('invitadosApp')
     .delete()
-    .eq('id', id); // Filtra por la columna 'id'
+    .eq('id', id); 
 
   if (error) {
     console.error("Error deleting movie:", error.message);
@@ -58,12 +50,11 @@ export const deleteMovie = async (id) => {
 
 // Actualizar un registro
 export const updateMovie = async (id, updates) => {
-  // 'updates' debe ser un objeto con los campos a cambiar, ej: { nombre: 'Nuevo Nombre' }
-  const { data, error } = await supabase
+    const { data, error } = await supabase
     .from('invitadosApp')
     .update(updates)
-    .eq('id', id)  // Filtra por el ID del registro
-    .select();     // .select() es opcional, sirve para devolver el registro ya modificado
+    .eq('id', id)  
+    .select();    
 
   if (error) {
     console.error("Error updating movie:", error.message);

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-// 1. IMPORTA todas las funciones necesarias
+
 import { fetchMovies, createMovies, updateMovie, deleteMovie } from "../services/movies";
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
-  // 2. DECLARA el estado para el input
+
   const [newMovieName, setNewMovieName] = useState("");
 
   useEffect(() => {
@@ -20,7 +20,6 @@ const MoviesPage = () => {
     try {
       const data = await createMovies({ name: newMovieName });
       if (data) {
-        // Supabase insert devuelve un array, por eso usamos spread
         setMovies([...movies, ...data]); 
         setNewMovieName(""); 
       }
