@@ -18,7 +18,7 @@ const LoginPage = () => {
     console.log(user?.email, user)
 
     if (user) {
-      // redirigimos a la ruta /
+     
       navigate('/')
     }
   }
