@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router'
 import LoginPage from './pages/LoginPage.jsx'
 import LayoutBase from './layouts/LayoutBase.jsx'
 import LayoutAdmin from './layouts/LayoutAdmin.jsx'
-import MoviesPage from './pages/MoviesPage.jsx'
+import InvitadosPage from './pages/InvitadosPage.jsx'
 
 
 createRoot(document.getElementById('root')).render(
@@ -19,7 +19,7 @@ createRoot(document.getElementById('root')).render(
       </Route>
 
       <Route element={<LayoutAdmin />}>
-        <Route path='/' element={<MoviesPage />} />
+        <Route path='/' element={<InvitadosPage />} />
       </Route>
     </Routes>
   </BrowserRouter>,

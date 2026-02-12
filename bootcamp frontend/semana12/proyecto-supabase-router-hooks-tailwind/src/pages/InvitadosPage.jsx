@@ -1,27 +1,27 @@
 import { useEffect, useState } from "react";
 
-import { fetchMovies, createMovies, updateMovie, deleteMovie } from "../services/movies";
+import { fetchInvitados, createInvitados, updateInvitado, deleteInvitado } from "../services/Invitados";
 
-const MoviesPage = () => {
-  const [movies, setMovies] = useState([]);
+const InvitadosPage = () => {
+  const [Invitados, setInvitados] = useState([]);
 
-  const [newMovieName, setNewMovieName] = useState("");
+  const [newInvitadoName, setNewInvitadoName] = useState("");
 
   useEffect(() => {
-    fetchMovies().then((data) => {
-        if(data) setMovies(data);
+    fetchInvitados().then((data) => {
+        if(data) setInvitados(data);
     });
   }, []);
 
   const handleCreate = async (e) => {
     e.preventDefault();
-    if (!newMovieName.trim()) return;
+    if (!newInvitadoName.trim()) return;
 
     try {
-      const data = await createMovies({ name: newMovieName });
+      const data = await createInvitados({ name: newInvitadoName });
       if (data) {
-        setMovies([...movies, ...data]); 
-        setNewMovieName(""); 
+        setInvitados([...Invitados, ...data]); 
+        setNewInvitadoName(""); 
       }
     } catch (error) {
       alert("Error al crear");
@@ -32,8 +32,8 @@ const MoviesPage = () => {
   const handleDelete = async (id) => {
     if (window.confirm("¿Eliminar este registro?")) {
       try {
-        await deleteMovie(id);
-        setMovies(movies.filter((m) => m.id !== id));
+        await deleteInvitado(id);
+        setInvitados(Invitados.filter((m) => m.id !== id));
       } catch (error) {
         alert("Error al eliminar");
       }
@@ -45,8 +45,8 @@ const MoviesPage = () => {
     const nuevoNombre = window.prompt("Editar nombre:", currentName);
     if (nuevoNombre && nuevoNombre !== currentName) {
       try {
-        await updateMovie(id, { name: nuevoNombre });
-        setMovies(movies.map(m => m.id === id ? { ...m, name: nuevoNombre } : m));
+        await updateInvitado(id, { name: nuevoNombre });
+        setInvitados(Invitados.map(m => m.id === id ? { ...m, name: nuevoNombre } : m));
       } catch (error) {
         alert("Error al actualizar");
       }
@@ -60,8 +60,8 @@ const MoviesPage = () => {
       <form onSubmit={handleCreate} className="flex gap-2 mb-8">
         <input
           type="text"
-          value={newMovieName}
-          onChange={(e) => setNewMovieName(e.target.value)}
+          value={newInvitadoName}
+          onChange={(e) => setNewInvitadoName(e.target.value)}
           placeholder="invitado..."
           className="flex-1 border p-2 rounded shadow-sm"
         />
@@ -71,19 +71,19 @@ const MoviesPage = () => {
       </form>
 
       <ul className="space-y-3">
-        {movies.map((movie) => (
-          <li key={movie.id} className="flex justify-between items-center p-3 bg-white border rounded shadow-sm">
-            <span className="text-lg">{movie.name}</span>
+        {Invitados.map((Invitado) => (
+          <li key={Invitado.id} className="flex justify-between items-center p-3 bg-white border rounded shadow-sm">
+            <span className="text-lg">{Invitado.name}</span>
             
             <div className="flex gap-2">
               <button
-                onClick={() => handleUpdate(movie.id, movie.name)}
+                onClick={() => handleUpdate(Invitado.id, Invitado.name)}
                 className="text-blue-500 hover:text-blue-700"
               >
                 Editar
               </button>
               <button
-                onClick={() => handleDelete(movie.id)}
+                onClick={() => handleDelete(Invitado.id)}
                 className="text-red-500 hover:text-red-700"
               >
                 Eliminar
@@ -96,4 +96,4 @@ const MoviesPage = () => {
   );
 };
 
-export default MoviesPage;
+export default InvitadosPage;

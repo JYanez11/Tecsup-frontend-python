@@ -2,13 +2,13 @@ import { supabase } from "../lib/supabase";
 
 
 // Obtener registros
-export const fetchMovies = async () => {
+export const fetchInvitados = async () => {
   const { data, error } = await supabase
     .from('invitadosApp')
     .select('*');
 
   if (error) {
-    console.error("Error fetching movies:", error.message);
+    console.error("Error fetching Invitados:", error.message);
     return null;
   }
 
@@ -17,14 +17,14 @@ export const fetchMovies = async () => {
 
 
 // Crear registros (Insertar)
-export const createMovies = async (payload) => {
+export const createInvitados = async (payload) => {
     const { data, error } = await supabase
     .from('invitadosApp')
     .insert(payload) 
     .select();       
 
   if (error) {
-    console.error("Error creating movie:", error.message);
+    console.error("Error creating Invitado:", error.message);
     throw error; 
   }
 
@@ -33,14 +33,14 @@ export const createMovies = async (payload) => {
 
 
 // Borrar un registro por ID
-export const deleteMovie = async (id) => {
+export const deleteInvitado = async (id) => {
   const { data, error } = await supabase
     .from('invitadosApp')
     .delete()
     .eq('id', id); 
 
   if (error) {
-    console.error("Error deleting movie:", error.message);
+    console.error("Error deleting Invitado:", error.message);
     throw error;
   }
 
@@ -49,7 +49,7 @@ export const deleteMovie = async (id) => {
 
 
 // Actualizar un registro
-export const updateMovie = async (id, updates) => {
+export const updateInvitado = async (id, updates) => {
     const { data, error } = await supabase
     .from('invitadosApp')
     .update(updates)
@@ -57,7 +57,7 @@ export const updateMovie = async (id, updates) => {
     .select();    
 
   if (error) {
-    console.error("Error updating movie:", error.message);
+    console.error("Error updating Invitado:", error.message);
     throw error;
   }
 
