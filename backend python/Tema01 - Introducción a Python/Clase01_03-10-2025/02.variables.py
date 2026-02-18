@@ -9,6 +9,7 @@ print(Mi_variable)
 # No se permite números al inicio del nombre de una variable
 # 1_variable = "texto2" <- da error
 variable_1 = "texto2"
+print(variable_1)
 
 # No se permite caractéres especiales en el nombre de la variable
 # $_variable = 1 <- da error

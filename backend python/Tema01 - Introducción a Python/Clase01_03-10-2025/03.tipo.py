@@ -8,3 +8,4 @@ dato7 = (1,3,3) # Tupla
 dato8 = [1,2,3] # Lista
 dato9 = {1,2}   # Set (conjunto)
 dato10 = {"A":"1","B":"2"}  # Diccionario
+print(dato10)
