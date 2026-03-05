@@ -9,20 +9,20 @@ class PermisoDenegadoError(MiAplicacionError):
 
 def buscarUsuario(nombre,):
     if(nombre!='admin'):
-        raise UsuarioNoEncontradoError('Usuarios no encontrado-no usa')
+        raise UsuarioNoEncontradoError('Usuario no encontrado')
 
 def validarPerfil(perfil):
     if(perfil!='admin'):
-        raise PermisoDenegadoError('permiso denegado-no usa')
+        raise PermisoDenegadoError('permiso denegado')
 
 try:
     usuario = input('Nombre Usuario: ')
     buscarUsuario(usuario)
     perfil = input('Perfil Usuario: ')
     validarPerfil(perfil)
-except UsuarioNoEncontradoError:
-    print('El usuario no existe')
-except PermisoDenegadoError:
-    print('No tiene permisos')
-except MiAplicacionError:
-    print('Error general de la aplicación')
+except UsuarioNoEncontradoError as e :
+    print('Error:', e)
+except PermisoDenegadoError as e :
+    print('Error:', e)
+except MiAplicacionError as e :
+   print('Error:', e)
