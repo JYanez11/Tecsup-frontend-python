@@ -20,15 +20,6 @@ INNER JOIN doctores d ON d.id=c.doctor_id
 INNER JOIN pacientes p ON p.id=c.paciente_id
 WHERE doctor_id=2 AND paciente_id=3;
 
-# Listamos todas las citas de un doctor, pacientes y especialidad de doctor
-SELECT c.id, doctor_id, d.nombre As doctores, paciente_id, p.nombre AS pacientes, fecha_cita
-FROM citas c
-INNER JOIN doctores d ON d.id=c.doctor_id
-INNER JOIN pacientes p ON p.id=c.paciente_id
-WHERE doctor_id=2 AND paciente_id=3;
-
-# Actualizar el campo especialidad por especialidad_id,
-# Convertir el campos a int4, en la tabla doctores
 
 # Listamos todas las citas y los datos de los doctores, pacientes y especialidades
 SELECT c.id, doctor_id, d.nombre AS doctores, e.nombre AS especialidad, paciente_id, p.nombre AS pacientes, fecha_cita
