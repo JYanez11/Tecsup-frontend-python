@@ -1,19 +1,20 @@
-# Listamos todas las citas y mostramos los nombres de doctores y pacientes
-SELECT c.id, doctor_id, d.nombre As doctores, paciente_id, p.nombre AS pacientes, fecha_cita
+# Listamos todas las citas y mostramos los nombres de doctores y pacientes,
+
+SELECT doctor_id, d.nombre As doctores, paciente_id, p.nombre AS pacientes, fecha_cita
 FROM citas c
 INNER JOIN doctores d ON d.id=c.doctor_id
 INNER JOIN pacientes p ON p.id=c.paciente_id;
 
-# Listamos todas las citas de un doctor en especifico
-SELECT c.id, doctor_id, d.nombre As doctores, paciente_id, p.nombre AS pacientes, fecha_cita
+# Listamos todas las citas de un doctor en especifico, 
+
+SELECT doctor_id, d.nombre As doctores, paciente_id, p.nombre AS pacientes, fecha_cita
 FROM citas c
 INNER JOIN doctores d ON d.id=c.doctor_id
 INNER JOIN pacientes p ON p.id=c.paciente_id
-INNER JOIN especialidades e ON e.id=
 WHERE doctor_id=2;
 
 # Listamos todas las citas de un doctor y un paciente en especifico
-SELECT c.id, doctor_id, d.nombre As doctores, paciente_id, p.nombre AS pacientes, fecha_cita
+SELECT doctor_id, d.nombre As doctores, paciente_id, p.nombre AS pacientes, fecha_cita
 FROM citas c
 INNER JOIN doctores d ON d.id=c.doctor_id
 INNER JOIN pacientes p ON p.id=c.paciente_id
